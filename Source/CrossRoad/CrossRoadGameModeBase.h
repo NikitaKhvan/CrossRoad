@@ -14,4 +14,6 @@ class CROSSROAD_API ACrossRoadGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+	ACrossRoadGameModeBase();
+	
 };

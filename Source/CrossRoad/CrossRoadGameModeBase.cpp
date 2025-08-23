@@ -2,4 +2,9 @@
 
 
 #include "CrossRoadGameModeBase.h"
+#include "PlayerPawn.h"
 
+ACrossRoadGameModeBase::ACrossRoadGameModeBase()
+{
+	DefaultPawnClass = APlayerPawn::StaticClass();
+}

@@ -36,7 +36,7 @@ public: \
 
 #define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API ACrossRoadGameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	NO_API ACrossRoadGameModeBase(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ACrossRoadGameModeBase) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ACrossRoadGameModeBase); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ACrossRoadGameModeBase); \
@@ -48,8 +48,6 @@ public:
 
 
 #define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API ACrossRoadGameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ACrossRoadGameModeBase(ACrossRoadGameModeBase&&); \
@@ -57,7 +55,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ACrossRoadGameModeBase); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ACrossRoadGameModeBase); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ACrossRoadGameModeBase)
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ACrossRoadGameModeBase)
 
 
 #define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_PRIVATE_PROPERTY_OFFSET

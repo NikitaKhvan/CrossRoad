@@ -1,0 +1,19 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-CrossRoad-7495.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\CrossRoadEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Development\CrossRoad\CrossRoad.cpp.obj"
+"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Development\CrossRoad\CrossRoadGameModeBase.cpp.obj"
+"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Development\CrossRoad\MapChunk.cpp.obj"
+"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Development\CrossRoad\MapGenerator.cpp.obj"
+"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Development\CrossRoad\CrossRoad.init.gen.cpp.obj"
+"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Development\CrossRoad\CrossRoadGameModeBase.gen.cpp.obj"
+"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Development\CrossRoad\MapChunk.gen.cpp.obj"
+"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Development\CrossRoad\MapGenerator.gen.cpp.obj"
+"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Development\CrossRoad\Default.rc2.res"
+/OUT:"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Development\CrossRoad\UE4Editor-CrossRoad-7495.lib"

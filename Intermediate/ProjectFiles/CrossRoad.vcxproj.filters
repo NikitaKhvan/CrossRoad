@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\CrossRoad.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{BD45AF8C-DBD5-4358-A0B5-5A2491C72F40}</UniqueIdentifier>
+      <UniqueIdentifier>{9CCE0496-9ABA-4119-AD0C-427D2A84C73C}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\CrossRoad.Target.cs">
       <Filter>Source</Filter>
@@ -11,8 +11,10 @@
     <None Include="..\..\Source\CrossRoadEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{1461BF24-29ED-4BC8-8021-8400B9E95CDE}</UniqueIdentifier>
+      <UniqueIdentifier>{71FFC36B-D213-44C0-81F4-6515AE2C7BE2}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -23,8 +25,11 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
     <Filter Include="Source\CrossRoad">
-      <UniqueIdentifier>{6965A621-E8FD-4895-A051-3FC9AEBCB988}</UniqueIdentifier>
+      <UniqueIdentifier>{65B88420-5ABB-440A-821B-40848071A708}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\CrossRoad\CrossRoad.Build.cs">
       <Filter>Source\CrossRoad</Filter>
@@ -39,6 +44,24 @@
       <Filter>Source\CrossRoad</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\CrossRoad\CrossRoadGameModeBase.h">
+      <Filter>Source\CrossRoad</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CrossRoad\MapChunk.cpp">
+      <Filter>Source\CrossRoad</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CrossRoad\MapChunk.h">
+      <Filter>Source\CrossRoad</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CrossRoad\MapGenerator.cpp">
+      <Filter>Source\CrossRoad</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CrossRoad\MapGenerator.h">
+      <Filter>Source\CrossRoad</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CrossRoad\PlayerPawn.cpp">
+      <Filter>Source\CrossRoad</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CrossRoad\PlayerPawn.h">
       <Filter>Source\CrossRoad</Filter>
     </ClInclude>
   </ItemGroup>
