@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"E:\\c++ repos\\CrossRoadProject\\CrossRoad\\Source\\CrossRoad\\CrossRoad.Build.cs",
+		"E:\\c++ repos\\CrossRoadProject\\CrossRoad\\Source\\CrossRoad.Target.cs",
+		"E:\\c++ repos\\CrossRoadProject\\CrossRoad\\Source\\CrossRoadEditor.Target.cs"
+	],
+	"EngineVersion": "4.27.2"
+}

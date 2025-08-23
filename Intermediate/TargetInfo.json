@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "CrossRoad",
+			"Path": "E:\\c++ repos\\CrossRoadProject\\CrossRoad\\Source\\CrossRoad.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "CrossRoadEditor",
+			"Path": "E:\\c++ repos\\CrossRoadProject\\CrossRoad\\Source\\CrossRoadEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
