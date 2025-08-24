@@ -41,7 +41,7 @@ void ACarSpawnerActor::SpawnActor()
         FRotator Rotation = GetActorRotation();
 
         GetWorld()->SpawnActor<AActor>(ActorToSpawn, Location, Rotation, SpawnParams);
-        UE_LOG(LogTemp, Warning, TEXT("SPAWN at: %f"), Location);
+        //UE_LOG(LogTemp, Warning, TEXT("SPAWN at: %f"), Location);
     }
 }
 

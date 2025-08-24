@@ -46,6 +46,6 @@ void AMapGenerator::GenChunkCollision(FVector PawnLoc)
 	if (World) {
 		World->SpawnActor<AMapChunk>(ChunkClass, test);
 	}
-	UE_LOG(LogTemp, Display, TEXT("GENERATED SUCCESSFULY"));
+	//UE_LOG(LogTemp, Display, TEXT("GENERATED SUCCESSFULY"));
 }
 

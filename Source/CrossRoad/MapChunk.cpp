@@ -18,8 +18,9 @@ void AMapChunk::BeginPlay()
 {
 	Super::BeginPlay();
 	ACarsActor* Car = Cast<ACarsActor>(UGameplayStatics::GetActorOfClass(GetWorld(), ACarsActor::StaticClass()));
-	Car->Speed += 50.0f;
-
+	if (Car) {
+		Car->Speed += 50.0f;
+	}
 }
 
 // Called every frame

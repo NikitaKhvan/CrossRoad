@@ -17,7 +17,13 @@ ACarsActor::ACarsActor()
 void ACarsActor::BeginPlay()
 {
 	Super::BeginPlay();
-	
+    GetWorldTimerManager().SetTimer(
+        DestroyTimerHandle,
+        this,
+        &ACarsActor::DestroyCar,
+        7.0f,
+        true
+    );
 }
 
 // Called every frame
@@ -27,8 +33,10 @@ void ACarsActor::Tick(float DeltaTime)
 	if (Speed <= 0) {
 		return;
 	}
+    StartDistance = GetActorLocation();
 	const FVector NewLocation = GetActorLocation() + GetActorRightVector() * Speed * DeltaTime;
 	SetActorLocation(NewLocation);
+    
 	//UE_LOG(LogTemp, Display, TEXT("POEHALI"));
 }
 
@@ -53,5 +61,10 @@ void ACarsActor::NotifyHit(
 void ACarsActor::Drive()
 {
 	
+}
+
+void ACarsActor::DestroyCar()
+{
+    Destroy();
 }
 

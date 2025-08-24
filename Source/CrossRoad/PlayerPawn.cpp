@@ -41,7 +41,7 @@ void APlayerPawn::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* Ot
 		if (!ProcessedActors.Contains(OtherActor))
 		{
 			ProcessedActors.Add(OtherActor); 
-			UE_LOG(LogTemp, Warning, TEXT("First overlap with: %s"), *OtherActor->GetName());
+			//UE_LOG(LogTemp, Warning, TEXT("First overlap with: %s"), *OtherActor->GetName());
 			AMapGenerator* Spawner = Cast<AMapGenerator>(UGameplayStatics::GetActorOfClass(GetWorld(), AMapGenerator::StaticClass()));\
 				if (Spawner)
 				{
@@ -52,7 +52,7 @@ void APlayerPawn::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* Ot
 		else
 		{
 			
-			UE_LOG(LogTemp, Warning, TEXT("Ignored repeat overlap with: %s"), *OtherActor->GetName());
+			//UE_LOG(LogTemp, Warning, TEXT("Ignored repeat overlap with: %s"), *OtherActor->GetName());
 		}
 	}
 }
@@ -123,7 +123,7 @@ void APlayerPawn::MoveRight()
 void APlayerPawn::MovementPause()
 {
 	bCanMove = !bCanMove;
-	UE_LOG(LogTemp, Display, TEXT("ZA WARUDOOOO"));
+	//UE_LOG(LogTemp, Display, TEXT("ZA WARUDOOOO"));
 }
 
 

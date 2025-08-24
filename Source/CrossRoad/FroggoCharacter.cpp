@@ -31,14 +31,14 @@ void AFroggoCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActo
 	{	
 		if (OtherActor->IsA(ACarsActor::StaticClass()))
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Character hit by car! Restarting level..."));
+			//UE_LOG(LogTemp, Warning, TEXT("Character hit by car! Restarting level..."));
 			UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
 			return;
 		}
 		if (!ProcessedActors.Contains(OtherActor))
 		{
 			ProcessedActors.Add(OtherActor);
-			UE_LOG(LogTemp, Warning, TEXT("First overlap with: %s"), *OtherActor->GetName());
+			//UE_LOG(LogTemp, Warning, TEXT("First overlap with: %s"), *OtherActor->GetName());
 			AMapGenerator* Spawner = Cast<AMapGenerator>(UGameplayStatics::GetActorOfClass(GetWorld(), AMapGenerator::StaticClass())); 
 				if (Spawner)
 				{
@@ -49,7 +49,7 @@ void AFroggoCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActo
 		else
 		{
 
-			UE_LOG(LogTemp, Warning, TEXT("Ignored repeat overlap with: %s"), *OtherActor->GetName());
+			//UE_LOG(LogTemp, Warning, TEXT("Ignored repeat overlap with: %s"), *OtherActor->GetName());
 		}
 	}
 }
