@@ -12,22 +12,24 @@ APlayerPawn::APlayerPawn()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	SceneComponent = CreateDefaultSubobject<USceneComponent>("SceneComp");
-	SetRootComponent(SceneComponent);
+	//SceneComponent = CreateDefaultSubobject<USceneComponent>("SceneComp");
+	//SetRootComponent(SceneComponent);
 
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>("StaticMeshComponent");
+	StaticMeshComponent->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	StaticMeshComponent->SetCollisionObjectType(ECC_Pawn);
+	StaticMeshComponent->SetCollisionResponseToAllChannels(ECR_Block);
 	StaticMeshComponent->SetupAttachment(SceneComponent);
 
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraComponent");
-	CameraComponent->SetupAttachment(SceneComponent);
+	CameraComponent->SetupAttachment(StaticMeshComponent);
 	
 	CollisionSphere = CreateDefaultSubobject<USphereComponent>("CollisionSphere");
 	CollisionSphere->SetupAttachment(SceneComponent);
-
-	CollisionSphere->InitSphereRadius(40.0f);
-
+	CollisionSphere->InitSphereRadius(25.0f);
 	CollisionSphere->SetGenerateOverlapEvents(true);
 	CollisionSphere->SetCollisionProfileName(TEXT("Pawn"));
+
 }
 
 
@@ -43,7 +45,7 @@ void APlayerPawn::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* Ot
 			AMapGenerator* Spawner = Cast<AMapGenerator>(UGameplayStatics::GetActorOfClass(GetWorld(), AMapGenerator::StaticClass()));\
 				if (Spawner)
 				{
-					Spawner->GenChunk(APlayerPawn::GetActorLocation());
+					Spawner->GenChunkCollision(APlayerPawn::GetActorLocation());
 				}
 			
 		}
@@ -71,11 +73,10 @@ void APlayerPawn::Tick(float DeltaTime)
 	
 	const FVector NewLocation = GetActorLocation() + Speed * 10.0f;
 	
-	SetActorLocation(NewLocation);
+	SetActorLocation(NewLocation, true);
 	Speed = FVector::ZeroVector;
 
 
-	
 }
 
 // Called to bind functionality to input

@@ -15,7 +15,7 @@ AMapGenerator::AMapGenerator()
 void AMapGenerator::BeginPlay()
 {
 	Super::BeginPlay();
-	//GenChunk();
+	//GenChunkInitial();
 	
 }
 
@@ -26,14 +26,26 @@ void AMapGenerator::Tick(float DeltaTime)
 
 }
 
-void AMapGenerator::GenChunk(FVector PawnLoc)
+//void amapgenerator::genchunkinitial()
+//{
+//	ftransform test = ftransform(frotator(0.0f, -90.0f, 0.0f), fvector(-140.0f, 0.0f, 110.0f));
+//	uworld* world = getworld();
+//	if (world) {
+//		world->spawnactor<amapchunk>(chunkclassinitial, test);
+//	}
+//	ue_log(logtemp, display, text("generated successfuly"));
+//}
+
+void AMapGenerator::GenChunkCollision(FVector PawnLoc)
 {
-	PawnLoc.X += 250.0f;
+	PawnLoc.X += 350.0f;
+	PawnLoc.Z = 110.0f;
+	PawnLoc.Y = 0.f;
 	FTransform test = FTransform(FRotator(0.0f, -90.0f, 0.0f), PawnLoc);
 	UWorld* World = GetWorld();
 	if (World) {
 		World->SpawnActor<AMapChunk>(ChunkClass, test);
 	}
-	UE_LOG(LogTemp, Display, TEXT("GENERATED SUCCESSFULY"),);
+	UE_LOG(LogTemp, Display, TEXT("GENERATED SUCCESSFULY"));
 }
 

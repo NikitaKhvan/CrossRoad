@@ -262,8 +262,11 @@
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.26100.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.26100.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.26100.0\winrt"
+/FI"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\CrossRoadEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Yu"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\CrossRoadEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Fp"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\CrossRoadEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
 "E:\c++ repos\CrossRoadProject\CrossRoad\Source\CrossRoad\CrossRoadGameModeBase.cpp"
-/FI"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Development\CrossRoad\Definitions.h"
+/FI"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Development\CrossRoad\Definitions.CrossRoad.h"
 /Fo"E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Development\CrossRoad\CrossRoadGameModeBase.cpp.obj"
 /TP
 /GR-

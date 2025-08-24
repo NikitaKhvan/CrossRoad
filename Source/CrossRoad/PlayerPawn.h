@@ -6,6 +6,7 @@
 #include "GameFramework/Pawn.h"
 #include "Camera/CameraComponent.h"
 #include "MapGenerator.h"
+#include "GameFramework/FloatingPawnMovement.h"
 #include "PlayerPawn.generated.h"
 
 UCLASS()
@@ -28,6 +29,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere)
 	class USphereComponent* CollisionSphere;
+
+	UPROPERTY(VisibleAnywhere)
+	bool isDead = false;
 
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp,

@@ -16,18 +16,18 @@ struct FHitResult;
 #endif
 #define CROSSROAD_PlayerPawn_generated_h
 
-#define CrossRoad_Source_CrossRoad_PlayerPawn_h_14_SPARSE_DATA
-#define CrossRoad_Source_CrossRoad_PlayerPawn_h_14_RPC_WRAPPERS \
+#define CrossRoad_Source_CrossRoad_PlayerPawn_h_15_SPARSE_DATA
+#define CrossRoad_Source_CrossRoad_PlayerPawn_h_15_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
-#define CrossRoad_Source_CrossRoad_PlayerPawn_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+#define CrossRoad_Source_CrossRoad_PlayerPawn_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
-#define CrossRoad_Source_CrossRoad_PlayerPawn_h_14_INCLASS_NO_PURE_DECLS \
+#define CrossRoad_Source_CrossRoad_PlayerPawn_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPlayerPawn(); \
 	friend struct Z_Construct_UClass_APlayerPawn_Statics; \
@@ -36,7 +36,7 @@ public: \
 	DECLARE_SERIALIZER(APlayerPawn)
 
 
-#define CrossRoad_Source_CrossRoad_PlayerPawn_h_14_INCLASS \
+#define CrossRoad_Source_CrossRoad_PlayerPawn_h_15_INCLASS \
 private: \
 	static void StaticRegisterNativesAPlayerPawn(); \
 	friend struct Z_Construct_UClass_APlayerPawn_Statics; \
@@ -45,7 +45,7 @@ public: \
 	DECLARE_SERIALIZER(APlayerPawn)
 
 
-#define CrossRoad_Source_CrossRoad_PlayerPawn_h_14_STANDARD_CONSTRUCTORS \
+#define CrossRoad_Source_CrossRoad_PlayerPawn_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API APlayerPawn(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(APlayerPawn) \
@@ -58,7 +58,7 @@ private: \
 public:
 
 
-#define CrossRoad_Source_CrossRoad_PlayerPawn_h_14_ENHANCED_CONSTRUCTORS \
+#define CrossRoad_Source_CrossRoad_PlayerPawn_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API APlayerPawn(APlayerPawn&&); \
@@ -69,28 +69,28 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(APlayerPawn)
 
 
-#define CrossRoad_Source_CrossRoad_PlayerPawn_h_14_PRIVATE_PROPERTY_OFFSET
-#define CrossRoad_Source_CrossRoad_PlayerPawn_h_11_PROLOG
-#define CrossRoad_Source_CrossRoad_PlayerPawn_h_14_GENERATED_BODY_LEGACY \
+#define CrossRoad_Source_CrossRoad_PlayerPawn_h_15_PRIVATE_PROPERTY_OFFSET
+#define CrossRoad_Source_CrossRoad_PlayerPawn_h_12_PROLOG
+#define CrossRoad_Source_CrossRoad_PlayerPawn_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	CrossRoad_Source_CrossRoad_PlayerPawn_h_14_PRIVATE_PROPERTY_OFFSET \
-	CrossRoad_Source_CrossRoad_PlayerPawn_h_14_SPARSE_DATA \
-	CrossRoad_Source_CrossRoad_PlayerPawn_h_14_RPC_WRAPPERS \
-	CrossRoad_Source_CrossRoad_PlayerPawn_h_14_INCLASS \
-	CrossRoad_Source_CrossRoad_PlayerPawn_h_14_STANDARD_CONSTRUCTORS \
+	CrossRoad_Source_CrossRoad_PlayerPawn_h_15_PRIVATE_PROPERTY_OFFSET \
+	CrossRoad_Source_CrossRoad_PlayerPawn_h_15_SPARSE_DATA \
+	CrossRoad_Source_CrossRoad_PlayerPawn_h_15_RPC_WRAPPERS \
+	CrossRoad_Source_CrossRoad_PlayerPawn_h_15_INCLASS \
+	CrossRoad_Source_CrossRoad_PlayerPawn_h_15_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define CrossRoad_Source_CrossRoad_PlayerPawn_h_14_GENERATED_BODY \
+#define CrossRoad_Source_CrossRoad_PlayerPawn_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	CrossRoad_Source_CrossRoad_PlayerPawn_h_14_PRIVATE_PROPERTY_OFFSET \
-	CrossRoad_Source_CrossRoad_PlayerPawn_h_14_SPARSE_DATA \
-	CrossRoad_Source_CrossRoad_PlayerPawn_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	CrossRoad_Source_CrossRoad_PlayerPawn_h_14_INCLASS_NO_PURE_DECLS \
-	CrossRoad_Source_CrossRoad_PlayerPawn_h_14_ENHANCED_CONSTRUCTORS \
+	CrossRoad_Source_CrossRoad_PlayerPawn_h_15_PRIVATE_PROPERTY_OFFSET \
+	CrossRoad_Source_CrossRoad_PlayerPawn_h_15_SPARSE_DATA \
+	CrossRoad_Source_CrossRoad_PlayerPawn_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	CrossRoad_Source_CrossRoad_PlayerPawn_h_15_INCLASS_NO_PURE_DECLS \
+	CrossRoad_Source_CrossRoad_PlayerPawn_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

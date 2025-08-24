@@ -1,0 +1,38 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "CarsActor.h"
+
+#include "CarSpawnerActor.generated.h"
+
+UCLASS()
+class CROSSROAD_API ACarSpawnerActor : public AActor
+{
+	GENERATED_BODY()
+	
+public:	
+	// Sets default values for this actor's properties
+	ACarSpawnerActor();
+	
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	UPROPERTY(EditAnywhere, Category = "Spawner")
+	TSubclassOf<AActor> ActorToSpawn = ACarsActor::StaticClass();
+
+	UPROPERTY(EditAnywhere, Category = "Spawner")
+	float SpawnInterval = 2.0f;
+
+	FTimerHandle SpawnTimerHandle;
+
+	void SpawnActor();
+
+public:	
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+};

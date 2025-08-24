@@ -17,12 +17,14 @@ class CROSSROAD_API AMapGenerator : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AMapGenerator();
-	void GenChunk(FVector PawnLoc);
+	void GenChunkCollision(FVector PawnLoc);
 
 protected:
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AMapChunk> ChunkClass;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AMapChunk> ChunkClassInitial;
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
@@ -32,4 +34,5 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
+	/*void GenChunkInitial();*/
 };

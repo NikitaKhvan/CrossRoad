@@ -2,6 +2,8 @@
 
 
 #include "MapChunk.h"
+#include "CarsActor.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 AMapChunk::AMapChunk()
@@ -15,7 +17,9 @@ AMapChunk::AMapChunk()
 void AMapChunk::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	ACarsActor* Car = Cast<ACarsActor>(UGameplayStatics::GetActorOfClass(GetWorld(), ACarsActor::StaticClass()));
+	Car->Speed += 50.0f;
+
 }
 
 // Called every frame

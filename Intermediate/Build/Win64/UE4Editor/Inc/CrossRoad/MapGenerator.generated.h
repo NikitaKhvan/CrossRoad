@@ -59,7 +59,8 @@ public: \
 
 
 #define CrossRoad_Source_CrossRoad_MapGenerator_h_15_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__ChunkClass() { return STRUCT_OFFSET(AMapGenerator, ChunkClass); }
+	FORCEINLINE static uint32 __PPO__ChunkClass() { return STRUCT_OFFSET(AMapGenerator, ChunkClass); } \
+	FORCEINLINE static uint32 __PPO__ChunkClassInitial() { return STRUCT_OFFSET(AMapGenerator, ChunkClassInitial); }
 
 
 #define CrossRoad_Source_CrossRoad_MapGenerator_h_12_PROLOG
