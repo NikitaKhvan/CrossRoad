@@ -16,18 +16,18 @@ struct FHitResult;
 #endif
 #define CROSSROAD_FroggoCharacter_generated_h
 
-#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_SPARSE_DATA
-#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_RPC_WRAPPERS \
+#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_SPARSE_DATA
+#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
-#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
-#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_INCLASS_NO_PURE_DECLS \
+#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFroggoCharacter(); \
 	friend struct Z_Construct_UClass_AFroggoCharacter_Statics; \
@@ -36,7 +36,7 @@ public: \
 	DECLARE_SERIALIZER(AFroggoCharacter)
 
 
-#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_INCLASS \
+#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_INCLASS \
 private: \
 	static void StaticRegisterNativesAFroggoCharacter(); \
 	friend struct Z_Construct_UClass_AFroggoCharacter_Statics; \
@@ -45,7 +45,7 @@ public: \
 	DECLARE_SERIALIZER(AFroggoCharacter)
 
 
-#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_STANDARD_CONSTRUCTORS \
+#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AFroggoCharacter(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AFroggoCharacter) \
@@ -58,7 +58,7 @@ private: \
 public:
 
 
-#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_ENHANCED_CONSTRUCTORS \
+#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AFroggoCharacter(AFroggoCharacter&&); \
@@ -69,31 +69,31 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AFroggoCharacter)
 
 
-#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__ProcessedActors() { return STRUCT_OFFSET(AFroggoCharacter, ProcessedActors); }
+#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__ProcessedComponents() { return STRUCT_OFFSET(AFroggoCharacter, ProcessedComponents); }
 
 
-#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_11_PROLOG
-#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_GENERATED_BODY_LEGACY \
+#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_10_PROLOG
+#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_PRIVATE_PROPERTY_OFFSET \
-	CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_SPARSE_DATA \
-	CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_RPC_WRAPPERS \
-	CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_INCLASS \
-	CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_STANDARD_CONSTRUCTORS \
+	CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_PRIVATE_PROPERTY_OFFSET \
+	CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_SPARSE_DATA \
+	CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_RPC_WRAPPERS \
+	CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_INCLASS \
+	CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_GENERATED_BODY \
+#define CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_PRIVATE_PROPERTY_OFFSET \
-	CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_SPARSE_DATA \
-	CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_INCLASS_NO_PURE_DECLS \
-	CrossRoad_Source_CrossRoad_FroggoCharacter_h_14_ENHANCED_CONSTRUCTORS \
+	CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_PRIVATE_PROPERTY_OFFSET \
+	CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_SPARSE_DATA \
+	CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_INCLASS_NO_PURE_DECLS \
+	CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

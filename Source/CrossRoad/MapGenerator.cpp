@@ -2,6 +2,8 @@
 
 
 #include "MapGenerator.h"
+#include "EngineUtils.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 AMapGenerator::AMapGenerator()
@@ -15,7 +17,6 @@ AMapGenerator::AMapGenerator()
 void AMapGenerator::BeginPlay()
 {
 	Super::BeginPlay();
-	//GenChunkInitial();
 	
 }
 
@@ -26,15 +27,31 @@ void AMapGenerator::Tick(float DeltaTime)
 
 }
 
-//void amapgenerator::genchunkinitial()
-//{
-//	ftransform test = ftransform(frotator(0.0f, -90.0f, 0.0f), fvector(-140.0f, 0.0f, 110.0f));
-//	uworld* world = getworld();
-//	if (world) {
-//		world->spawnactor<amapchunk>(chunkclassinitial, test);
-//	}
-//	ue_log(logtemp, display, text("generated successfuly"));
-//}
+void AMapGenerator::RemoveOldRoads(int32 NumToRemove)
+{
+	while (SpawnedRoads.Num() > 0 && NumToRemove > 0)
+	{
+		if (AActor* OldRoad = SpawnedRoads[0])
+		{
+			OldRoad->Destroy();
+			TArray<AActor*> Roads;
+			UGameplayStatics::GetAllActorsOfClass(GetWorld(), AActor::StaticClass(), Roads);
+
+			for (AActor* Road : Roads)
+			{
+				if (Road && Road->GetName() == TEXT("BP_StartMapChunk_2"))
+				{
+					Road->Destroy();
+					break;
+				}
+			}
+		}
+		SpawnedRoads.RemoveAt(0);
+		NumToRemove--;
+	}
+}
+
+
 
 void AMapGenerator::GenChunkCollision(FVector PawnLoc)
 {
@@ -44,8 +61,8 @@ void AMapGenerator::GenChunkCollision(FVector PawnLoc)
 	FTransform test = FTransform(FRotator(0.0f, -90.0f, 0.0f), PawnLoc);
 	UWorld* World = GetWorld();
 	if (World) {
-		World->SpawnActor<AMapChunk>(ChunkClass, test);
+		AActor* NewRoad = World->SpawnActor<AMapChunk>(ChunkClass, test);
+		SpawnedRoads.Add(NewRoad);
 	}
-	//UE_LOG(LogTemp, Display, TEXT("GENERATED SUCCESSFULY"));
 }
 

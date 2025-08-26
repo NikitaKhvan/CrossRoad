@@ -27,6 +27,6 @@ void AMapChunk::BeginPlay()
 void AMapChunk::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	
 }
 

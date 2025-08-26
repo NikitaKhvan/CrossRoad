@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeCrossRoad_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x0C375BB6,
+				0x8C868108,
 				0xE1CCDED8,
 				METADATA_PARAMS(nullptr, 0)
 			};

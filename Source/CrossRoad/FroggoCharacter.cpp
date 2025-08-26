@@ -5,13 +5,14 @@
 #include "Kismet/GameplayStatics.h"
 #include "Components/CapsuleComponent.h"
 #include "CarsActor.h"
+#include "PhysicalMaterials/PhysicalMaterial.h"
 
 // Sets default values
 AFroggoCharacter::AFroggoCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
+	Counter = 0;
 
 }
 
@@ -19,40 +20,51 @@ AFroggoCharacter::AFroggoCharacter()
 void AFroggoCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	GetCapsuleComponent()->OnComponentBeginOverlap.AddDynamic(this, &AFroggoCharacter::OnOverlapBegin);																			
+	GetCapsuleComponent()->OnComponentBeginOverlap.AddDynamic(this, &AFroggoCharacter::OnOverlapBegin);
+	
 	
 }
 
 void AFroggoCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	
+
 
 	if (OtherActor && OtherActor != this)
-	{	
+	{
 		if (OtherActor->IsA(ACarsActor::StaticClass()))
 		{
 			//UE_LOG(LogTemp, Warning, TEXT("Character hit by car! Restarting level..."));
 			UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
 			return;
 		}
-		if (!ProcessedActors.Contains(OtherActor))
+		if (!ProcessedComponents.Contains(OtherComp))
 		{
-			ProcessedActors.Add(OtherActor);
-			//UE_LOG(LogTemp, Warning, TEXT("First overlap with: %s"), *OtherActor->GetName());
-			AMapGenerator* Spawner = Cast<AMapGenerator>(UGameplayStatics::GetActorOfClass(GetWorld(), AMapGenerator::StaticClass())); 
+			ProcessedComponents.Add(OtherComp);
+			if (OtherComp->ComponentHasTag("Spawner")) {
+				AMapGenerator* Spawner = Cast<AMapGenerator>(UGameplayStatics::GetActorOfClass(GetWorld(), AMapGenerator::StaticClass()));
 				if (Spawner)
 				{
 					Spawner->GenChunkCollision(AFroggoCharacter::GetActorLocation());
 				}
+			}
+			Counter++;
+			UE_LOG(LogTemp, Warning, TEXT("CONGRATS POINTS: %i"), Counter)
+			if (Counter>9 && Counter % 5 == 0)
+			{
+				if (AMapGenerator* Spawner = Cast<AMapGenerator>(
+					UGameplayStatics::GetActorOfClass(GetWorld(), AMapGenerator::StaticClass())))
+				{
+					Spawner->RemoveOldRoads(5);
+				}
+			}
 
 		}
-		else
-		{
 
-			//UE_LOG(LogTemp, Warning, TEXT("Ignored repeat overlap with: %s"), *OtherActor->GetName());
-		}
 	}
 }
+
+
+
 
 // Called every frame
 void AFroggoCharacter::Tick(float DeltaTime)
@@ -94,4 +106,5 @@ void AFroggoCharacter::MoveLeft()
 
 	SetActorLocation(NewLocation, true);
 }
+
 

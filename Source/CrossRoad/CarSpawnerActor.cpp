@@ -2,6 +2,8 @@
 
 
 #include "CarSpawnerActor.h"
+#include "FroggoCharacter.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ACarSpawnerActor::ACarSpawnerActor()
@@ -18,14 +20,19 @@ void ACarSpawnerActor::BeginPlay()
 
     if (ActorToSpawn)
     {
+        SpawnActor();
         UE_LOG(LogTemp, Warning, TEXT("TRYING TO SPAWN"));
         GetWorldTimerManager().SetTimer(
             SpawnTimerHandle,
             this,
             &ACarSpawnerActor::SpawnActor,
-            SpawnInterval,
+            FMath::FRandRange(3.5f, SpawnInterval),
             true
         );
+        AFroggoCharacter* Frog = Cast<AFroggoCharacter>(UGameplayStatics::GetActorOfClass(GetWorld(), AFroggoCharacter::StaticClass()));
+        if (Frog && Frog->Counter > 0 && Frog->Counter % 5) {
+            SpawnInterval = FMath::Clamp(SpawnInterval - 0.5f, 0.0f, 3.5f);
+        }
     }
 	
 }

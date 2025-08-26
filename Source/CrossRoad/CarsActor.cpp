@@ -30,37 +30,37 @@ void ACarsActor::BeginPlay()
 void ACarsActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if (Speed <= 0) {
-		return;
-	}
-    StartDistance = GetActorLocation();
-	const FVector NewLocation = GetActorLocation() + GetActorRightVector() * Speed * DeltaTime;
-	SetActorLocation(NewLocation);
+    Drive(Speed, DeltaTime);
     
 	//UE_LOG(LogTemp, Display, TEXT("POEHALI"));
 }
 
-void ACarsActor::NotifyHit(
-    UPrimitiveComponent* MyComp,
-    AActor* Other,
-    UPrimitiveComponent* OtherComp,
-    bool bSelfMoved,
-    FVector HitLocation,
-    FVector HitNormal,
-    FVector NormalImpulse,
-    const FHitResult& Hit)
-{
-    Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
+//void ACarsActor::NotifyHit(
+//    UPrimitiveComponent* MyComp,
+//    AActor* Other,
+//    UPrimitiveComponent* OtherComp,
+//    bool bSelfMoved,
+//    FVector HitLocation,
+//    FVector HitNormal,
+//    FVector NormalImpulse,
+//    const FHitResult& Hit)
+//{
+//    Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
+//
+//    if (Other && Other->IsA(AFroggoCharacter::StaticClass()))
+//    {
+//        UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
+//    }
+//}
 
-    if (Other && Other->IsA(AFroggoCharacter::StaticClass()))
-    {
-        UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
+void ACarsActor::Drive(float Velocity, float DeltaTime)
+{   
+    if (Velocity <= 0) {
+        return;
     }
-}
-
-void ACarsActor::Drive()
-{
-	
+    StartDistance = GetActorLocation();
+    const FVector NewLocation = GetActorLocation() + GetActorRightVector() * Velocity * DeltaTime;
+    SetActorLocation(NewLocation);
 }
 
 void ACarsActor::DestroyCar()

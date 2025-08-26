@@ -18,15 +18,17 @@ public:
 	// Sets default values for this actor's properties
 	AMapGenerator();
 	void GenChunkCollision(FVector PawnLoc);
+	void RemoveOldRoads(int32 NumToRemove);
 
 protected:
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AMapChunk> ChunkClass;
-	UPROPERTY(EditAnywhere)
-	TSubclassOf<AMapChunk> ChunkClassInitial;
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	UPROPERTY()
+	TArray<AActor*> SpawnedRoads;
 
 
 public:	
@@ -34,5 +36,5 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	/*void GenChunkInitial();*/
+	
 };

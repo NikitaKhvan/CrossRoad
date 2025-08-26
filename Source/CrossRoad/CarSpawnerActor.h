@@ -25,7 +25,7 @@ protected:
 	TSubclassOf<AActor> ActorToSpawn = ACarsActor::StaticClass();
 
 	UPROPERTY(EditAnywhere, Category = "Spawner")
-	float SpawnInterval = 2.0f;
+	float SpawnInterval = 9.0f;
 
 	FTimerHandle SpawnTimerHandle;
 
