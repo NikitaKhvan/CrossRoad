@@ -40,8 +40,11 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 private:
+	bool bCanMove = true;
 	void MoveForward();
 	void MoveRight();
 	void MoveLeft();
-
+	void PauseMovement();
+	FTimerHandle TimerHandle;
+	
 };

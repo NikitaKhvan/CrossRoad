@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\CrossRoad.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{5ED9F388-AF07-4747-A2E5-195BD90B5B83}</UniqueIdentifier>
+      <UniqueIdentifier>{98CBE1E6-B1B2-4063-8C1F-E63BF90BF183}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\CrossRoad.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{4DF0017C-C70D-43D1-A20D-EA5576AA287A}</UniqueIdentifier>
+      <UniqueIdentifier>{F1B93E10-4BCD-4B9C-A25C-AD777124610C}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -29,7 +29,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\CrossRoad">
-      <UniqueIdentifier>{EA622ADC-344A-4044-9959-74BAD616579D}</UniqueIdentifier>
+      <UniqueIdentifier>{4EDFB18B-28C7-45FD-99BD-D47A68532FA5}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\CrossRoad\CarsActor.cpp">
       <Filter>Source\CrossRoad</Filter>
@@ -41,6 +41,24 @@
       <Filter>Source\CrossRoad</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\CrossRoad\CarSpawnerActor.h">
+      <Filter>Source\CrossRoad</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CrossRoad\CrossGameInstance.cpp">
+      <Filter>Source\CrossRoad</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CrossRoad\CrossGameInstance.h">
+      <Filter>Source\CrossRoad</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CrossRoad\CrossMenuWidget.cpp">
+      <Filter>Source\CrossRoad</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CrossRoad\CrossMenuWidget.h">
+      <Filter>Source\CrossRoad</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CrossRoad\CrossPauseWidget.cpp">
+      <Filter>Source\CrossRoad</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CrossRoad\CrossPauseWidget.h">
       <Filter>Source\CrossRoad</Filter>
     </ClInclude>
     <None Include="..\..\Source\CrossRoad\CrossRoad.Build.cs">
@@ -56,6 +74,12 @@
       <Filter>Source\CrossRoad</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\CrossRoad\CrossRoadGameModeBase.h">
+      <Filter>Source\CrossRoad</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CrossRoad\CrossTheRoadMenuGameModeBase.cpp">
+      <Filter>Source\CrossRoad</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CrossRoad\CrossTheRoadMenuGameModeBase.h">
       <Filter>Source\CrossRoad</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\CrossRoad\FroggoCharacter.cpp">
@@ -82,10 +106,40 @@
     <ClInclude Include="..\..\Source\CrossRoad\MapGenerator.h">
       <Filter>Source\CrossRoad</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\CrossRoad\MenuHUD.cpp">
+      <Filter>Source\CrossRoad</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CrossRoad\MenuHUD.h">
+      <Filter>Source\CrossRoad</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CrossRoad\MenuPlayerController.cpp">
+      <Filter>Source\CrossRoad</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CrossRoad\MenuPlayerController.h">
+      <Filter>Source\CrossRoad</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CrossRoad\MyHUD.cpp">
+      <Filter>Source\CrossRoad</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CrossRoad\MyHUD.h">
+      <Filter>Source\CrossRoad</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CrossRoad\MyPlayerController.cpp">
+      <Filter>Source\CrossRoad</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CrossRoad\MyPlayerController.h">
+      <Filter>Source\CrossRoad</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\CrossRoad\PlayerPawn.cpp">
       <Filter>Source\CrossRoad</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\CrossRoad\PlayerPawn.h">
+      <Filter>Source\CrossRoad</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CrossRoad\StartTestClass.cpp">
+      <Filter>Source\CrossRoad</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CrossRoad\StartTestClass.h">
       <Filter>Source\CrossRoad</Filter>
     </ClInclude>
   </ItemGroup>

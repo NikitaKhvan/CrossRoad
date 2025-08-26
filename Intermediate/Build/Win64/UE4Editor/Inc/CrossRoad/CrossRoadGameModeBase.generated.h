@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define CROSSROAD_CrossRoadGameModeBase_generated_h
 
-#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_SPARSE_DATA
-#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_RPC_WRAPPERS
-#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS
-#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_INCLASS_NO_PURE_DECLS \
+#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_SPARSE_DATA
+#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_RPC_WRAPPERS
+#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_RPC_WRAPPERS_NO_PURE_DECLS
+#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACrossRoadGameModeBase(); \
 	friend struct Z_Construct_UClass_ACrossRoadGameModeBase_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(ACrossRoadGameModeBase)
 
 
-#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_INCLASS \
+#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_INCLASS \
 private: \
 	static void StaticRegisterNativesACrossRoadGameModeBase(); \
 	friend struct Z_Construct_UClass_ACrossRoadGameModeBase_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(ACrossRoadGameModeBase)
 
 
-#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_STANDARD_CONSTRUCTORS \
+#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ACrossRoadGameModeBase(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ACrossRoadGameModeBase) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_ENHANCED_CONSTRUCTORS \
+#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ACrossRoadGameModeBase(ACrossRoadGameModeBase&&); \
@@ -58,28 +58,28 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ACrossRoadGameModeBase)
 
 
-#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_PRIVATE_PROPERTY_OFFSET
-#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_12_PROLOG
-#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_GENERATED_BODY_LEGACY \
+#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_PRIVATE_PROPERTY_OFFSET
+#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_PROLOG
+#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_PRIVATE_PROPERTY_OFFSET \
-	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_SPARSE_DATA \
-	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_RPC_WRAPPERS \
-	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_INCLASS \
-	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_STANDARD_CONSTRUCTORS \
+	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_PRIVATE_PROPERTY_OFFSET \
+	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_SPARSE_DATA \
+	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_RPC_WRAPPERS \
+	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_INCLASS \
+	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_GENERATED_BODY \
+#define CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_PRIVATE_PROPERTY_OFFSET \
-	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_SPARSE_DATA \
-	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_INCLASS_NO_PURE_DECLS \
-	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_15_ENHANCED_CONSTRUCTORS \
+	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_PRIVATE_PROPERTY_OFFSET \
+	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_SPARSE_DATA \
+	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_INCLASS_NO_PURE_DECLS \
+	CrossRoad_Source_CrossRoad_CrossRoadGameModeBase_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

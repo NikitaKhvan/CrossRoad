@@ -40,7 +40,6 @@ void EmptyLinkFunctionForGeneratedCodeCrossRoadGameModeBase() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACrossRoadGameModeBase_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * \n */" },
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering Utilities|Transformation" },
 		{ "IncludePath", "CrossRoadGameModeBase.h" },
 		{ "ModuleRelativePath", "CrossRoadGameModeBase.h" },
@@ -74,7 +73,7 @@ void EmptyLinkFunctionForGeneratedCodeCrossRoadGameModeBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACrossRoadGameModeBase, 1599619145);
+	IMPLEMENT_CLASS(ACrossRoadGameModeBase, 1948364478);
 	template<> CROSSROAD_API UClass* StaticClass<ACrossRoadGameModeBase>()
 	{
 		return ACrossRoadGameModeBase::StaticClass();

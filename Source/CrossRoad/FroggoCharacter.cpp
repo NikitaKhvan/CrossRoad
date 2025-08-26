@@ -7,6 +7,7 @@
 #include "CarsActor.h"
 #include "PhysicalMaterials/PhysicalMaterial.h"
 
+
 // Sets default values
 AFroggoCharacter::AFroggoCharacter()
 {
@@ -80,31 +81,47 @@ void AFroggoCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction("M_Forward", EInputEvent::IE_Pressed, this, &AFroggoCharacter::MoveForward);
 	PlayerInputComponent->BindAction("M_Left", EInputEvent::IE_Pressed, this, &AFroggoCharacter::MoveLeft);
 	PlayerInputComponent->BindAction("M_Right", EInputEvent::IE_Pressed, this, &AFroggoCharacter::MoveRight);
-
+	//PlayerInputComponent->BindAction("Pause", EInputEvent::IE_Pressed, this, &AFroggoCharacter::OnPauseGame);
 }
 
 void AFroggoCharacter::MoveForward()
 {
-	FVector Forward = GetActorForwardVector();
-	FVector NewLocation = GetActorLocation() + Forward * 100.0f;
-
-	SetActorLocation(NewLocation, true);
+	if (bCanMove) {
+		FVector Forward = GetActorForwardVector();
+		FVector NewLocation = GetActorLocation() + Forward * 100.0f;
+		PauseMovement();
+		SetActorLocation(NewLocation, true);
+		GetWorldTimerManager().SetTimer(TimerHandle, this, &AFroggoCharacter::PauseMovement, 0.3f, false);
+	}
 }
 
 void AFroggoCharacter::MoveRight()
 {
-	FVector Right = GetActorRightVector();
-	FVector NewLocation = GetActorLocation() + Right * 100.0f;
-
-	SetActorLocation(NewLocation, true);
+	if (bCanMove) {
+		FVector Right = GetActorRightVector();
+		FVector NewLocation = GetActorLocation() + Right * 100.0f;
+		PauseMovement();
+		SetActorLocation(NewLocation, true);
+		GetWorldTimerManager().SetTimer(TimerHandle, this, &AFroggoCharacter::PauseMovement, 0.3f, false);
+	}
 }
 
 void AFroggoCharacter::MoveLeft()
 {
-	FVector Right = GetActorRightVector();
-	FVector NewLocation = GetActorLocation() + Right * -100.0f;
-
-	SetActorLocation(NewLocation, true);
+	if (bCanMove) {
+		FVector Right = GetActorRightVector();
+		FVector NewLocation = GetActorLocation() + Right * -100.0f;
+		PauseMovement();
+		SetActorLocation(NewLocation, true);
+		GetWorldTimerManager().SetTimer(TimerHandle, this, &AFroggoCharacter::PauseMovement, 0.3f, false);
+	}
 }
+
+void AFroggoCharacter::PauseMovement()
+{
+	bCanMove = !bCanMove;
+}
+
+
 
 
