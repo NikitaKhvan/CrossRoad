@@ -20,7 +20,6 @@ void EmptyLinkFunctionForGeneratedCodeFroggoCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
-	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AFroggoCharacter::execOnOverlapBegin)
 	{
@@ -149,10 +148,6 @@ void EmptyLinkFunctionForGeneratedCodeFroggoCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ProcessedComponents_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FSetPropertyParams NewProp_ProcessedComponents;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ForwardMontage_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ForwardMontage;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -197,19 +192,11 @@ void EmptyLinkFunctionForGeneratedCodeFroggoCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FSetPropertyParams Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ProcessedComponents = { "ProcessedComponents", nullptr, (EPropertyFlags)0x0020088000000008, UE4CodeGen_Private::EPropertyGenFlags::Set, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFroggoCharacter, ProcessedComponents), METADATA_PARAMS(Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ProcessedComponents_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ProcessedComponents_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ForwardMontage_MetaData[] = {
-		{ "Category", "Animation" },
-		{ "ModuleRelativePath", "FroggoCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ForwardMontage = { "ForwardMontage", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFroggoCharacter, ForwardMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ForwardMontage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ForwardMontage_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFroggoCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_Counter,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_bIsMoving,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ProcessedComponents_ElementProp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ProcessedComponents,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ForwardMontage,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AFroggoCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AFroggoCharacter>::IsAbstract,
@@ -238,7 +225,7 @@ void EmptyLinkFunctionForGeneratedCodeFroggoCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFroggoCharacter, 3464764570);
+	IMPLEMENT_CLASS(AFroggoCharacter, 642224258);
 	template<> CROSSROAD_API UClass* StaticClass<AFroggoCharacter>()
 	{
 		return AFroggoCharacter::StaticClass();

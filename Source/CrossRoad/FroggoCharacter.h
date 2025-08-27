@@ -32,8 +32,6 @@ protected:
 	UPROPERTY()
 	TSet<UPrimitiveComponent*> ProcessedComponents;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")
-	UAnimMontage* ForwardMontage;
 
 
 public:	

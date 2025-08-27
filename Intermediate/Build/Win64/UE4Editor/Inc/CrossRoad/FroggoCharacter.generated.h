@@ -70,8 +70,7 @@ public: \
 
 
 #define CrossRoad_Source_CrossRoad_FroggoCharacter_h_13_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__ProcessedComponents() { return STRUCT_OFFSET(AFroggoCharacter, ProcessedComponents); } \
-	FORCEINLINE static uint32 __PPO__ForwardMontage() { return STRUCT_OFFSET(AFroggoCharacter, ForwardMontage); }
+	FORCEINLINE static uint32 __PPO__ProcessedComponents() { return STRUCT_OFFSET(AFroggoCharacter, ProcessedComponents); }
 
 
 #define CrossRoad_Source_CrossRoad_FroggoCharacter_h_10_PROLOG

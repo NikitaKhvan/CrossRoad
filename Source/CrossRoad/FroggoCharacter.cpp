@@ -105,16 +105,7 @@ void AFroggoCharacter::MoveForward()
 void AFroggoCharacter::MoveRight()
 {
 	if (bCanMove) {
-		if (USkeletalMeshComponent* MeshComp = GetMesh())
-		{
-			if (UAnimInstance* AnimInstance = MeshComp->GetAnimInstance())
-			{
-				if (ForwardMontage) 
-				{
-					AnimInstance->Montage_Play(ForwardMontage);
-				}
-			}
-		}
+		
 		FVector Right = GetActorRightVector();
 		FVector NewLocation = GetActorLocation() + Right * 100.0f;
 		bIsMoving = true;
@@ -127,16 +118,7 @@ void AFroggoCharacter::MoveRight()
 void AFroggoCharacter::MoveLeft()
 {
 	if (bCanMove) {
-		if (USkeletalMeshComponent* MeshComp = GetMesh())
-		{
-			if (UAnimInstance* AnimInstance = MeshComp->GetAnimInstance())
-			{
-				if (ForwardMontage) 
-				{
-					AnimInstance->Montage_Play(ForwardMontage);
-				}
-			}
-		}
+		
 		FVector Right = GetActorRightVector();
 		FVector NewLocation = GetActorLocation() + Right * -100.0f;
 		bIsMoving = true;
