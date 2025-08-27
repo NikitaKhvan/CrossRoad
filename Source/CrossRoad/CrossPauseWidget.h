@@ -22,13 +22,16 @@ protected:
 	virtual void NativeOnInitialized() override;
 
 	UPROPERTY(meta = (BindWidget))
-	UButton* ClearPauseButton;
+	UButton* ResumeBTN;
 
 	UPROPERTY(meta = (BindWidget))
-	UButton* RestartButton;
+	UButton* RestartBTN;
 
 	UPROPERTY(meta = (BindWidget))
-	UButton* MainMenuButton;
+	UButton* MMBTN;
+
+	UPROPERTY(meta = (BindWidget))
+	UButton* QuitBTN;
 
 	UPROPERTY(meta = (BindWidget))
 	UTextBlock* MenuTitle;
@@ -43,6 +46,9 @@ private:
 
 	UFUNCTION()
 	void OnMainMenu();
+
+	UFUNCTION()
+	void OnQuit();
 
 	void OnGameStateChanged(ECrossTheRoad State);
 

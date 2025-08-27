@@ -5,12 +5,39 @@
 #include "FroggoCharacter.h"
 #include "MyPlayerController.h"
 #include "EngineUtils.h"
+#include "MyHUD.h"
 
 ACrossRoadGameModeBase::ACrossRoadGameModeBase()
 {
 	DefaultPawnClass = AFroggoCharacter::StaticClass();
 	PlayerControllerClass = AMyPlayerController::StaticClass();
+	HUDClass = AMyHUD::StaticClass();
 }
+
+bool ACrossRoadGameModeBase::SetPause(APlayerController* PC, FCanUnpause CanUnpauseDelegate)
+{
+	const bool isPaused = Super::SetPause(PC, CanUnpauseDelegate);
+
+	if (isPaused) SetGameState(ECrossTheRoad::Pause);
+
+	return isPaused;
+}
+
+bool ACrossRoadGameModeBase::ClearPause()
+{
+	const auto PauseCleared = Super::ClearPause();
+	if (PauseCleared) {
+		SetGameState(ECrossTheRoad::InProgress);
+	}
+
+	return PauseCleared;
+}
+
+void ACrossRoadGameModeBase::SetGameover()
+{
+	SetGameState(ECrossTheRoad::GameOver);
+}
+
 
 void ACrossRoadGameModeBase::StartPlay()
 {

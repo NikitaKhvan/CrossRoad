@@ -98,13 +98,13 @@ void EmptyLinkFunctionForGeneratedCodeCrossMenuWidget() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StartGameButton_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StartBTN_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_StartGameButton;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_StartBTN;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ExitGameButton_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_QuitBTN_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ExitGameButton;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_QuitBTN;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -124,24 +124,24 @@ void EmptyLinkFunctionForGeneratedCodeCrossMenuWidget() {}
 	};
 #endif
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_StartGameButton_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_StartBTN_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "CrossMenuWidget.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_StartGameButton = { "StartGameButton", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCrossMenuWidget, StartGameButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_StartGameButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_StartGameButton_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_StartBTN = { "StartBTN", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCrossMenuWidget, StartBTN), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_StartBTN_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_StartBTN_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_ExitGameButton_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_QuitBTN_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "CrossMenuWidget.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_ExitGameButton = { "ExitGameButton", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCrossMenuWidget, ExitGameButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_ExitGameButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_ExitGameButton_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_QuitBTN = { "QuitBTN", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCrossMenuWidget, QuitBTN), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_QuitBTN_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_QuitBTN_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCrossMenuWidget_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_StartGameButton,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_ExitGameButton,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_StartBTN,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCrossMenuWidget_Statics::NewProp_QuitBTN,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCrossMenuWidget_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UCrossMenuWidget>::IsAbstract,
@@ -170,7 +170,7 @@ void EmptyLinkFunctionForGeneratedCodeCrossMenuWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UCrossMenuWidget, 2200618601);
+	IMPLEMENT_CLASS(UCrossMenuWidget, 453319154);
 	template<> CROSSROAD_API UClass* StaticClass<UCrossMenuWidget>()
 	{
 		return UCrossMenuWidget::StaticClass();

@@ -5,6 +5,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Components/CapsuleComponent.h"
 #include "CarsActor.h"
+#include "CrossRoadGameModeBase.h"
 #include "PhysicalMaterials/PhysicalMaterial.h"
 
 
@@ -35,7 +36,13 @@ void AFroggoCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActo
 		if (OtherActor->IsA(ACarsActor::StaticClass()))
 		{
 			//UE_LOG(LogTemp, Warning, TEXT("Character hit by car! Restarting level..."));
-			UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
+			//UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
+			if (GetWorld()) {
+				const auto GameMode = Cast<ACrossRoadGameModeBase>(GetWorld()->GetAuthGameMode());
+				if (GameMode) {
+					GameMode->SetGameover();
+				}
+			}
 			return;
 		}
 		if (!ProcessedComponents.Contains(OtherComp))
@@ -81,7 +88,6 @@ void AFroggoCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction("M_Forward", EInputEvent::IE_Pressed, this, &AFroggoCharacter::MoveForward);
 	PlayerInputComponent->BindAction("M_Left", EInputEvent::IE_Pressed, this, &AFroggoCharacter::MoveLeft);
 	PlayerInputComponent->BindAction("M_Right", EInputEvent::IE_Pressed, this, &AFroggoCharacter::MoveRight);
-	//PlayerInputComponent->BindAction("Pause", EInputEvent::IE_Pressed, this, &AFroggoCharacter::OnPauseGame);
 }
 
 void AFroggoCharacter::MoveForward()
@@ -89,6 +95,7 @@ void AFroggoCharacter::MoveForward()
 	if (bCanMove) {
 		FVector Forward = GetActorForwardVector();
 		FVector NewLocation = GetActorLocation() + Forward * 100.0f;
+		bIsMoving = true;
 		PauseMovement();
 		SetActorLocation(NewLocation, true);
 		GetWorldTimerManager().SetTimer(TimerHandle, this, &AFroggoCharacter::PauseMovement, 0.3f, false);
@@ -98,8 +105,19 @@ void AFroggoCharacter::MoveForward()
 void AFroggoCharacter::MoveRight()
 {
 	if (bCanMove) {
+		if (USkeletalMeshComponent* MeshComp = GetMesh())
+		{
+			if (UAnimInstance* AnimInstance = MeshComp->GetAnimInstance())
+			{
+				if (ForwardMontage) 
+				{
+					AnimInstance->Montage_Play(ForwardMontage);
+				}
+			}
+		}
 		FVector Right = GetActorRightVector();
 		FVector NewLocation = GetActorLocation() + Right * 100.0f;
+		bIsMoving = true;
 		PauseMovement();
 		SetActorLocation(NewLocation, true);
 		GetWorldTimerManager().SetTimer(TimerHandle, this, &AFroggoCharacter::PauseMovement, 0.3f, false);
@@ -109,8 +127,19 @@ void AFroggoCharacter::MoveRight()
 void AFroggoCharacter::MoveLeft()
 {
 	if (bCanMove) {
+		if (USkeletalMeshComponent* MeshComp = GetMesh())
+		{
+			if (UAnimInstance* AnimInstance = MeshComp->GetAnimInstance())
+			{
+				if (ForwardMontage) 
+				{
+					AnimInstance->Montage_Play(ForwardMontage);
+				}
+			}
+		}
 		FVector Right = GetActorRightVector();
 		FVector NewLocation = GetActorLocation() + Right * -100.0f;
+		bIsMoving = true;
 		PauseMovement();
 		SetActorLocation(NewLocation, true);
 		GetWorldTimerManager().SetTimer(TimerHandle, this, &AFroggoCharacter::PauseMovement, 0.3f, false);
@@ -119,6 +148,7 @@ void AFroggoCharacter::MoveLeft()
 
 void AFroggoCharacter::PauseMovement()
 {
+	bIsMoving = false;
 	bCanMove = !bCanMove;
 }
 

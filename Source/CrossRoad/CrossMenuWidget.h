@@ -22,10 +22,10 @@ protected:
 	virtual void NativeOnInitialized() override;
 
 	UPROPERTY(meta = (BindWidget))
-	UButton* StartGameButton;
+	UButton* StartBTN;
 
 	UPROPERTY(meta = (BindWidget))
-	UButton* ExitGameButton;
+	UButton* QuitBTN;
 
 private:
 	UFUNCTION()

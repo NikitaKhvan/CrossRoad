@@ -26,12 +26,12 @@ void ACarSpawnerActor::BeginPlay()
             SpawnTimerHandle,
             this,
             &ACarSpawnerActor::SpawnActor,
-            FMath::FRandRange(3.5f, SpawnInterval),
+            FMath::FRandRange(1.5f, SpawnInterval),
             true
         );
         AFroggoCharacter* Frog = Cast<AFroggoCharacter>(UGameplayStatics::GetActorOfClass(GetWorld(), AFroggoCharacter::StaticClass()));
         if (Frog && Frog->Counter > 0 && Frog->Counter % 5) {
-            SpawnInterval = FMath::Clamp(SpawnInterval - 0.5f, 0.0f, 3.5f);
+            SpawnInterval = FMath::Clamp(SpawnInterval - 0.5f, 0.0f, 1.5f);
         }
     }
 	

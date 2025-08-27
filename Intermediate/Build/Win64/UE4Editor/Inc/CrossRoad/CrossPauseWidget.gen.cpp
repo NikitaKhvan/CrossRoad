@@ -20,6 +20,13 @@ void EmptyLinkFunctionForGeneratedCodeCrossPauseWidget() {}
 	UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(UCrossPauseWidget::execOnQuit)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnQuit();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UCrossPauseWidget::execOnMainMenu)
 	{
 		P_FINISH;
@@ -47,6 +54,7 @@ void EmptyLinkFunctionForGeneratedCodeCrossPauseWidget() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "OnClearPause", &UCrossPauseWidget::execOnClearPause },
 			{ "OnMainMenu", &UCrossPauseWidget::execOnMainMenu },
+			{ "OnQuit", &UCrossPauseWidget::execOnQuit },
 			{ "OnRestart", &UCrossPauseWidget::execOnRestart },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -95,6 +103,28 @@ void EmptyLinkFunctionForGeneratedCodeCrossPauseWidget() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UCrossPauseWidget_OnQuit_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCrossPauseWidget_OnQuit_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "CrossPauseWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UCrossPauseWidget_OnQuit_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCrossPauseWidget, nullptr, "OnQuit", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCrossPauseWidget_OnQuit_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCrossPauseWidget_OnQuit_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCrossPauseWidget_OnQuit()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UCrossPauseWidget_OnQuit_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UCrossPauseWidget_OnRestart_Statics
 	{
 #if WITH_METADATA
@@ -129,17 +159,21 @@ void EmptyLinkFunctionForGeneratedCodeCrossPauseWidget() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ClearPauseButton_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ResumeBTN_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ClearPauseButton;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ResumeBTN;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RestartButton_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RestartBTN_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_RestartButton;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_RestartBTN;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MainMenuButton_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MMBTN_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_MainMenuButton;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_MMBTN;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_QuitBTN_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_QuitBTN;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MenuTitle_MetaData[];
 #endif
@@ -155,6 +189,7 @@ void EmptyLinkFunctionForGeneratedCodeCrossPauseWidget() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCrossPauseWidget_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCrossPauseWidget_OnClearPause, "OnClearPause" }, // 2205861272
 		{ &Z_Construct_UFunction_UCrossPauseWidget_OnMainMenu, "OnMainMenu" }, // 2026197168
+		{ &Z_Construct_UFunction_UCrossPauseWidget_OnQuit, "OnQuit" }, // 2828709541
 		{ &Z_Construct_UFunction_UCrossPauseWidget_OnRestart, "OnRestart" }, // 1360206856
 	};
 #if WITH_METADATA
@@ -164,29 +199,37 @@ void EmptyLinkFunctionForGeneratedCodeCrossPauseWidget() {}
 	};
 #endif
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_ClearPauseButton_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_ResumeBTN_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "CrossPauseWidget.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_ClearPauseButton = { "ClearPauseButton", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCrossPauseWidget, ClearPauseButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_ClearPauseButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_ClearPauseButton_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_ResumeBTN = { "ResumeBTN", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCrossPauseWidget, ResumeBTN), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_ResumeBTN_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_ResumeBTN_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_RestartButton_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_RestartBTN_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "CrossPauseWidget.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_RestartButton = { "RestartButton", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCrossPauseWidget, RestartButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_RestartButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_RestartButton_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_RestartBTN = { "RestartBTN", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCrossPauseWidget, RestartBTN), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_RestartBTN_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_RestartBTN_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_MainMenuButton_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_MMBTN_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "CrossPauseWidget.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_MainMenuButton = { "MainMenuButton", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCrossPauseWidget, MainMenuButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_MainMenuButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_MainMenuButton_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_MMBTN = { "MMBTN", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCrossPauseWidget, MMBTN), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_MMBTN_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_MMBTN_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_QuitBTN_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "CrossPauseWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_QuitBTN = { "QuitBTN", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCrossPauseWidget, QuitBTN), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_QuitBTN_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_QuitBTN_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_MenuTitle_MetaData[] = {
 		{ "BindWidget", "" },
@@ -196,9 +239,10 @@ void EmptyLinkFunctionForGeneratedCodeCrossPauseWidget() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_MenuTitle = { "MenuTitle", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCrossPauseWidget, MenuTitle), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_MenuTitle_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_MenuTitle_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCrossPauseWidget_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_ClearPauseButton,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_RestartButton,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_MainMenuButton,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_ResumeBTN,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_RestartBTN,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_MMBTN,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_QuitBTN,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCrossPauseWidget_Statics::NewProp_MenuTitle,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCrossPauseWidget_Statics::StaticCppClassTypeInfo = {
@@ -228,7 +272,7 @@ void EmptyLinkFunctionForGeneratedCodeCrossPauseWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UCrossPauseWidget, 3084546543);
+	IMPLEMENT_CLASS(UCrossPauseWidget, 3176897683);
 	template<> CROSSROAD_API UClass* StaticClass<UCrossPauseWidget>()
 	{
 		return UCrossPauseWidget::StaticClass();

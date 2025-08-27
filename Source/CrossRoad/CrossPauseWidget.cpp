@@ -11,16 +11,20 @@ void UCrossPauseWidget::NativeOnInitialized()
 {
 	Super::NativeOnInitialized();
 
-	if (ClearPauseButton) {
-		ClearPauseButton->OnClicked.AddDynamic(this, &UCrossPauseWidget::OnClearPause);
+	if (ResumeBTN) {
+		ResumeBTN->OnClicked.AddDynamic(this, &UCrossPauseWidget::OnClearPause);
 	}
 
-	if (RestartButton) {
-		RestartButton->OnClicked.AddDynamic(this, &UCrossPauseWidget::OnRestart);
+	if (RestartBTN) {
+		RestartBTN->OnClicked.AddDynamic(this, &UCrossPauseWidget::OnRestart);
 	}
 
-	if (MainMenuButton) {
-		MainMenuButton->OnClicked.AddDynamic(this, &UCrossPauseWidget::OnMainMenu);
+	if (MMBTN) {
+		MMBTN->OnClicked.AddDynamic(this, &UCrossPauseWidget::OnMainMenu);
+	}
+
+	if (QuitBTN) {
+		QuitBTN->OnClicked.AddDynamic(this, &UCrossPauseWidget::OnQuit);
 	}
 
 	WidgetTitles.Add(ECrossTheRoad::Pause, FText::FromString("Pause"));
@@ -62,6 +66,11 @@ void UCrossPauseWidget::OnMainMenu()
 	UGameplayStatics::OpenLevel(this, CrossGameInstance->GetMainMenuLevelName());
 }
 
+void UCrossPauseWidget::OnQuit()
+{
+	UKismetSystemLibrary::QuitGame(this, nullptr, EQuitPreference::Quit, true);
+}
+
 void UCrossPauseWidget::OnGameStateChanged(ECrossTheRoad State)
 {
 	UE_LOG(LogTemp, Error, TEXT("Game State Name is %s"), *UEnum::GetValueAsString(State))
@@ -72,7 +81,7 @@ void UCrossPauseWidget::OnGameStateChanged(ECrossTheRoad State)
 
 	switch (State) {
 	case ECrossTheRoad::GameOver:
-		ClearPauseButton->SetVisibility(ESlateVisibility::Hidden);
+		ResumeBTN->SetVisibility(ESlateVisibility::Hidden);
 		break;
 	}
 }

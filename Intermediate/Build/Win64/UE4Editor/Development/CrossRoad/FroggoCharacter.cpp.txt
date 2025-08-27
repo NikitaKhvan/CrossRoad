@@ -26,6 +26,14 @@ E:\UEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeCom
 E:\UEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CapsuleComponent.generated.h
 E:\c++ repos\CrossRoadProject\CrossRoad\Source\CrossRoad\CarsActor.h
 E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Inc\CrossRoad\CarsActor.generated.h
+E:\c++ repos\CrossRoadProject\CrossRoad\Source\CrossRoad\CrossRoadGameModeBase.h
+E:\UEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+E:\UEngine\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+E:\UEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
+E:\UEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+E:\c++ repos\CrossRoadProject\CrossRoad\Source\CrossRoad\CrossGameInstance.h
+E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Inc\CrossRoad\CrossGameInstance.generated.h
+E:\c++ repos\CrossRoadProject\CrossRoad\Intermediate\Build\Win64\UE4Editor\Inc\CrossRoad\CrossRoadGameModeBase.generated.h
 E:\UEngine\UE_4.27\Engine\Source\Runtime\PhysicsCore\Public\PhysicalMaterials/PhysicalMaterial.h
 E:\UEngine\UE_4.27\Engine\Source\Runtime\PhysicsCore\Public\PhysicsSettingsEnums.h
 E:\UEngine\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\PhysicsCore\PhysicsSettingsEnums.generated.h

@@ -16,6 +16,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define CrossRoad_Source_CrossRoad_CrossPauseWidget_h_18_SPARSE_DATA
 #define CrossRoad_Source_CrossRoad_CrossPauseWidget_h_18_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execOnQuit); \
 	DECLARE_FUNCTION(execOnMainMenu); \
 	DECLARE_FUNCTION(execOnRestart); \
 	DECLARE_FUNCTION(execOnClearPause);
@@ -23,6 +24,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define CrossRoad_Source_CrossRoad_CrossPauseWidget_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execOnQuit); \
 	DECLARE_FUNCTION(execOnMainMenu); \
 	DECLARE_FUNCTION(execOnRestart); \
 	DECLARE_FUNCTION(execOnClearPause);
@@ -73,9 +75,10 @@ public: \
 
 
 #define CrossRoad_Source_CrossRoad_CrossPauseWidget_h_18_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__ClearPauseButton() { return STRUCT_OFFSET(UCrossPauseWidget, ClearPauseButton); } \
-	FORCEINLINE static uint32 __PPO__RestartButton() { return STRUCT_OFFSET(UCrossPauseWidget, RestartButton); } \
-	FORCEINLINE static uint32 __PPO__MainMenuButton() { return STRUCT_OFFSET(UCrossPauseWidget, MainMenuButton); } \
+	FORCEINLINE static uint32 __PPO__ResumeBTN() { return STRUCT_OFFSET(UCrossPauseWidget, ResumeBTN); } \
+	FORCEINLINE static uint32 __PPO__RestartBTN() { return STRUCT_OFFSET(UCrossPauseWidget, RestartBTN); } \
+	FORCEINLINE static uint32 __PPO__MMBTN() { return STRUCT_OFFSET(UCrossPauseWidget, MMBTN); } \
+	FORCEINLINE static uint32 __PPO__QuitBTN() { return STRUCT_OFFSET(UCrossPauseWidget, QuitBTN); } \
 	FORCEINLINE static uint32 __PPO__MenuTitle() { return STRUCT_OFFSET(UCrossPauseWidget, MenuTitle); }
 
 

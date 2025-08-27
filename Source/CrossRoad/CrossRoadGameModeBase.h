@@ -22,6 +22,9 @@ class CROSSROAD_API ACrossRoadGameModeBase : public AGameModeBase
 public:
 	
 	FOnGameStateChangedSignature OnGameStateChanged;
+	virtual bool SetPause(APlayerController* PC, FCanUnpause CanUnpauseDelegate = FCanUnpause()) override;
+	virtual bool ClearPause() override;
+	void SetGameover();
 
 private:
 	void StartPlay() override;

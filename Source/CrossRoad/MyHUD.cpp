@@ -6,18 +6,10 @@
 #include "Blueprint/UserWidget.h"
 #include "CrossRoadGameModeBase.h"
 
-void AMyHUD::DrawHUD()
-{
-	float CenterX = Canvas->SizeX / 2;
-	float CenterY = Canvas->SizeY / 2;
-	DrawLine(CenterX, CenterY - 10, CenterX, CenterY + 10, FLinearColor::Green, 2.0f);
-	DrawLine(CenterX + 10, CenterY, CenterX - 10, CenterY, FLinearColor::Green, 2.0f);
-}
 
 void AMyHUD::BeginPlay()
 {
 	Super::BeginPlay();
-
 
 	GameWidgets.Add(ECrossTheRoad::InProgress, CreateWidget<UUserWidget>(GetWorld(), PlayerHUDWidget));
 	GameWidgets.Add(ECrossTheRoad::Pause, CreateWidget<UUserWidget>(GetWorld(), PauseWidget));

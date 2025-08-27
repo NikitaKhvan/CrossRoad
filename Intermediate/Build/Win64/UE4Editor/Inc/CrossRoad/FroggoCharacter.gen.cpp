@@ -20,6 +20,7 @@ void EmptyLinkFunctionForGeneratedCodeFroggoCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
+	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AFroggoCharacter::execOnOverlapBegin)
 	{
@@ -138,11 +139,20 @@ void EmptyLinkFunctionForGeneratedCodeFroggoCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Counter_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_Counter;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bIsMoving_MetaData[];
+#endif
+		static void NewProp_bIsMoving_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bIsMoving;
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ProcessedComponents_ElementProp;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ProcessedComponents_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FSetPropertyParams NewProp_ProcessedComponents;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ForwardMontage_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ForwardMontage;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -168,6 +178,17 @@ void EmptyLinkFunctionForGeneratedCodeFroggoCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_Counter = { "Counter", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFroggoCharacter, Counter), METADATA_PARAMS(Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_Counter_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_Counter_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_bIsMoving_MetaData[] = {
+		{ "Category", "Movement" },
+		{ "ModuleRelativePath", "FroggoCharacter.h" },
+	};
+#endif
+	void Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_bIsMoving_SetBit(void* Obj)
+	{
+		((AFroggoCharacter*)Obj)->bIsMoving = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_bIsMoving = { "bIsMoving", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AFroggoCharacter), &Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_bIsMoving_SetBit, METADATA_PARAMS(Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_bIsMoving_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_bIsMoving_MetaData)) };
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ProcessedComponents_ElementProp = { "ProcessedComponents", nullptr, (EPropertyFlags)0x0000000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_UPrimitiveComponent_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ProcessedComponents_MetaData[] = {
@@ -176,10 +197,19 @@ void EmptyLinkFunctionForGeneratedCodeFroggoCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FSetPropertyParams Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ProcessedComponents = { "ProcessedComponents", nullptr, (EPropertyFlags)0x0020088000000008, UE4CodeGen_Private::EPropertyGenFlags::Set, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFroggoCharacter, ProcessedComponents), METADATA_PARAMS(Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ProcessedComponents_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ProcessedComponents_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ForwardMontage_MetaData[] = {
+		{ "Category", "Animation" },
+		{ "ModuleRelativePath", "FroggoCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ForwardMontage = { "ForwardMontage", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFroggoCharacter, ForwardMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ForwardMontage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ForwardMontage_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFroggoCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_Counter,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_bIsMoving,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ProcessedComponents_ElementProp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ProcessedComponents,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFroggoCharacter_Statics::NewProp_ForwardMontage,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AFroggoCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AFroggoCharacter>::IsAbstract,
@@ -208,7 +238,7 @@ void EmptyLinkFunctionForGeneratedCodeFroggoCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFroggoCharacter, 3616203001);
+	IMPLEMENT_CLASS(AFroggoCharacter, 3464764570);
 	template<> CROSSROAD_API UClass* StaticClass<AFroggoCharacter>()
 	{
 		return AFroggoCharacter::StaticClass();

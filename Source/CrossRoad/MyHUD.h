@@ -16,7 +16,6 @@ class CROSSROAD_API AMyHUD : public AHUD
 	GENERATED_BODY()
 
 private:
-	virtual void DrawHUD() override;
 	void OnGameStateChanged(ECrossTheRoad State);
 
 	UPROPERTY()

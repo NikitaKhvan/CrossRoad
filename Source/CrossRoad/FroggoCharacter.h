@@ -19,6 +19,9 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	int32 Counter;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
+	bool bIsMoving = false;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -29,7 +32,8 @@ protected:
 	UPROPERTY()
 	TSet<UPrimitiveComponent*> ProcessedComponents;
 
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")
+	UAnimMontage* ForwardMontage;
 
 
 public:	

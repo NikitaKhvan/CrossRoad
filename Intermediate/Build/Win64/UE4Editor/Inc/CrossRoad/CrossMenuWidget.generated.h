@@ -71,8 +71,8 @@ public: \
 
 
 #define CrossRoad_Source_CrossRoad_CrossMenuWidget_h_19_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__StartGameButton() { return STRUCT_OFFSET(UCrossMenuWidget, StartGameButton); } \
-	FORCEINLINE static uint32 __PPO__ExitGameButton() { return STRUCT_OFFSET(UCrossMenuWidget, ExitGameButton); }
+	FORCEINLINE static uint32 __PPO__StartBTN() { return STRUCT_OFFSET(UCrossMenuWidget, StartBTN); } \
+	FORCEINLINE static uint32 __PPO__QuitBTN() { return STRUCT_OFFSET(UCrossMenuWidget, QuitBTN); }
 
 
 #define CrossRoad_Source_CrossRoad_CrossMenuWidget_h_16_PROLOG

@@ -11,22 +11,26 @@ void UCrossMenuWidget::NativeOnInitialized()
 {
 	Super::NativeOnInitialized();
 
-	if (StartGameButton) {
-		StartGameButton->OnClicked.AddDynamic(this, &UCrossMenuWidget::OnGameStart);
+	if (StartBTN) {
+		StartBTN->OnClicked.AddDynamic(this, &UCrossMenuWidget::OnGameStart);
 	}
 
-	if (ExitGameButton) {
-		ExitGameButton->OnClicked.AddDynamic(this, &UCrossMenuWidget::OnExitGame);
+	if (QuitBTN) {
+		QuitBTN->OnClicked.AddDynamic(this, &UCrossMenuWidget::OnExitGame);
 	}
 }
 
 void UCrossMenuWidget::OnGameStart()
 {
-	if (!GetWorld()) return;
+	UE_LOG(LogTemp, Error, TEXT("Level name in NONE"));
+	if (!GetWorld()) {  return; }
 
 	const auto CrossGameInstance = GetWorld()->GetGameInstance<UCrossGameInstance>();
+	UE_LOG(LogTemp, Error, TEXT("Level name in NONE"));
 
-	if (!CrossGameInstance) return;
+	if (!CrossGameInstance) {
+		UE_LOG(LogTemp, Error, TEXT("Level name in NONE")); return;
+	}
 
 	if (CrossGameInstance->GetStartLevelName().IsNone()) {
 		UE_LOG(LogTemp, Error, TEXT("Level name in NONE"));
