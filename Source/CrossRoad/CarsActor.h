@@ -18,9 +18,6 @@ public:
 	UPROPERTY(EditAnywhere, Category="Speed")
 	float Speed = 100.0f;
 
-	UPROPERTY(EditAnywhere)
-	float Disatance = 1000.0f;
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

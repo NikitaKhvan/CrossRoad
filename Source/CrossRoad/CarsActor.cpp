@@ -21,7 +21,7 @@ void ACarsActor::BeginPlay()
         DestroyTimerHandle,
         this,
         &ACarsActor::DestroyCar,
-        7.0f,
+        10.0f,
         true
     );
 }
@@ -31,27 +31,7 @@ void ACarsActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
     Drive(Speed, DeltaTime);
-    
-	//UE_LOG(LogTemp, Display, TEXT("POEHALI"));
 }
-
-//void ACarsActor::NotifyHit(
-//    UPrimitiveComponent* MyComp,
-//    AActor* Other,
-//    UPrimitiveComponent* OtherComp,
-//    bool bSelfMoved,
-//    FVector HitLocation,
-//    FVector HitNormal,
-//    FVector NormalImpulse,
-//    const FHitResult& Hit)
-//{
-//    Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
-//
-//    if (Other && Other->IsA(AFroggoCharacter::StaticClass()))
-//    {
-//        UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
-//    }
-//}
 
 void ACarsActor::Drive(float Velocity, float DeltaTime)
 {   

@@ -17,13 +17,20 @@ class CROSSROAD_API AMapGenerator : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AMapGenerator();
-	void GenChunkCollision(FVector PawnLoc);
+	void GenChunkCollision();
 	void RemoveOldRoads(int32 NumToRemove);
 
 protected:
+	//Задается зона спауна дорог
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawn")
+	TSubclassOf<AMapChunk> SafeZoneSpawner;
 
-	UPROPERTY(EditAnywhere)
-	TSubclassOf<AMapChunk> ChunkClass;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawn")
+	TSubclassOf<AMapChunk> SafeZone;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawn")
+	TSubclassOf<AMapChunk> RoadsActor;
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
@@ -36,5 +43,5 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	
+	FVector SpawnLoc = FVector(660.0f, 0.0f, 110.0f);
 };

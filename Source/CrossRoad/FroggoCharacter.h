@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "MapGenerator.h"
+#include "Components/TimelineComponent.h"
+#include "Curves/CurveFloat.h"
 #include "FroggoCharacter.generated.h"
 
 UCLASS()
@@ -19,8 +21,8 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	int32 Counter;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
-	bool bIsMoving = false;
+	UPROPERTY(EditDefaultsOnly, Category ="Animation")
+	UAnimMontage* MoveAnim;
 
 protected:
 	// Called when the game starts or when spawned
@@ -32,7 +34,7 @@ protected:
 	UPROPERTY()
 	TSet<UPrimitiveComponent*> ProcessedComponents;
 
-
+	
 
 public:	
 	// Called every frame
@@ -42,11 +44,41 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 private:
-	bool bCanMove = true;
+	//bool bCanMove = true;
 	void MoveForward();
 	void MoveRight();
 	void MoveLeft();
 	void PauseMovement();
 	FTimerHandle TimerHandle;
-	
+
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement", meta = (AllowPrivateAccess = "true"))
+	UTimelineComponent* MovementTimeline;
+
+	// Кривая для управления интерполяцией
+	UPROPERTY(EditAnywhere, Category = "Movement", meta = (AllowPrivateAccess = "true"))
+	UCurveFloat* MovementCurve;
+
+	// Начальная и конечная позиции движения
+	FVector MovementStartLocation;
+	FVector MovementTargetLocation;
+
+	// Флаги состояния
+	bool bCanMove;
+	bool bIsMoving;
+
+	// Таймер хендл
+	FTimerHandle MovementTimerHandle;
+
+	// Делегаты для таймлайна
+	FOnTimelineFloat TimelineProgressDelegate;
+	FOnTimelineEvent TimelineFinishedDelegate;
+
+	// Функции обратного вызова для таймлайна
+	UFUNCTION()
+	void HandleTimelineProgress(float Value);
+
+	UFUNCTION()
+	void HandleTimelineFinished();
+
 };

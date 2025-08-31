@@ -45,7 +45,7 @@ void APlayerPawn::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* Ot
 			AMapGenerator* Spawner = Cast<AMapGenerator>(UGameplayStatics::GetActorOfClass(GetWorld(), AMapGenerator::StaticClass()));\
 				if (Spawner)
 				{
-					Spawner->GenChunkCollision(APlayerPawn::GetActorLocation());
+					Spawner->GenChunkCollision();
 				}
 			
 		}

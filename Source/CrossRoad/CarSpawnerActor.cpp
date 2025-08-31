@@ -18,7 +18,7 @@ void ACarSpawnerActor::BeginPlay()
 {
 	Super::BeginPlay();
 
-    if (ActorToSpawn)
+    if (ActorToSpawn.Num()>0)
     {
         SpawnActor();
         UE_LOG(LogTemp, Warning, TEXT("TRYING TO SPAWN"));
@@ -26,12 +26,12 @@ void ACarSpawnerActor::BeginPlay()
             SpawnTimerHandle,
             this,
             &ACarSpawnerActor::SpawnActor,
-            FMath::FRandRange(1.5f, SpawnInterval),
+            FMath::FRandRange(2.5f, SpawnInterval),
             true
         );
         AFroggoCharacter* Frog = Cast<AFroggoCharacter>(UGameplayStatics::GetActorOfClass(GetWorld(), AFroggoCharacter::StaticClass()));
-        if (Frog && Frog->Counter > 0 && Frog->Counter % 5) {
-            SpawnInterval = FMath::Clamp(SpawnInterval - 0.5f, 0.0f, 1.5f);
+        if (Frog && Frog->Counter > 0 && Frog->Counter % 2) {
+            SpawnInterval = FMath::Clamp(SpawnInterval - 0.5f, 0.0f, 2.5f);
         }
     }
 	
@@ -39,16 +39,26 @@ void ACarSpawnerActor::BeginPlay()
 
 void ACarSpawnerActor::SpawnActor()
 {
-    if (ActorToSpawn)
+    if (ActorToSpawn.Num()>0)
     {
-        FActorSpawnParameters SpawnParams;
-        SpawnParams.Owner = this;
+        int32 RandomIndex = FMath::RandRange(0, ActorToSpawn.Num() - 1);
+        TSubclassOf<AActor> SelectedClass = ActorToSpawn[RandomIndex];
+        
+        if (SelectedClass)
+        {
+            UWorld* World = GetWorld();
+            if (World)
+            {
+                FActorSpawnParameters SpawnParams;
+                SpawnParams.Owner = this;
 
-        FVector Location = GetActorLocation();     // можно сместить
-        FRotator Rotation = GetActorRotation();
+                FVector Location = GetActorLocation();
+                FRotator Rotation = GetActorRotation();
 
-        GetWorld()->SpawnActor<AActor>(ActorToSpawn, Location, Rotation, SpawnParams);
-        //UE_LOG(LogTemp, Warning, TEXT("SPAWN at: %f"), Location);
+                GetWorld()->SpawnActor<AActor>(SelectedClass, Location, Rotation, SpawnParams);
+                //UE_LOG(LogTemp, Warning, TEXT("SPAWN at: %f"), Location);
+            }
+        }
     }
 }
 

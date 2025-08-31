@@ -22,7 +22,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere, Category = "Spawner")
-	TSubclassOf<AActor> ActorToSpawn = ACarsActor::StaticClass();
+	TArray<TSubclassOf<AActor>> ActorToSpawn;
 
 	UPROPERTY(EditAnywhere, Category = "Spawner")
 	float SpawnInterval = 9.0f;

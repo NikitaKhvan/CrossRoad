@@ -33,10 +33,11 @@ void EmptyLinkFunctionForGeneratedCodeCarSpawnerActor() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_ActorToSpawn_Inner;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ActorToSpawn_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FClassPropertyParams NewProp_ActorToSpawn;
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_ActorToSpawn;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SpawnInterval_MetaData[];
 #endif
@@ -55,13 +56,14 @@ void EmptyLinkFunctionForGeneratedCodeCarSpawnerActor() {}
 		{ "ModuleRelativePath", "CarSpawnerActor.h" },
 	};
 #endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ACarSpawnerActor_Statics::NewProp_ActorToSpawn_Inner = { "ActorToSpawn", nullptr, (EPropertyFlags)0x0004000000000000, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_AActor_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACarSpawnerActor_Statics::NewProp_ActorToSpawn_MetaData[] = {
 		{ "Category", "Spawner" },
 		{ "ModuleRelativePath", "CarSpawnerActor.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ACarSpawnerActor_Statics::NewProp_ActorToSpawn = { "ActorToSpawn", nullptr, (EPropertyFlags)0x0024080000000001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACarSpawnerActor, ActorToSpawn), Z_Construct_UClass_AActor_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ACarSpawnerActor_Statics::NewProp_ActorToSpawn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACarSpawnerActor_Statics::NewProp_ActorToSpawn_MetaData)) };
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACarSpawnerActor_Statics::NewProp_ActorToSpawn = { "ActorToSpawn", nullptr, (EPropertyFlags)0x0024080000000001, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACarSpawnerActor, ActorToSpawn), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ACarSpawnerActor_Statics::NewProp_ActorToSpawn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACarSpawnerActor_Statics::NewProp_ActorToSpawn_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACarSpawnerActor_Statics::NewProp_SpawnInterval_MetaData[] = {
 		{ "Category", "Spawner" },
@@ -70,6 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeCarSpawnerActor() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACarSpawnerActor_Statics::NewProp_SpawnInterval = { "SpawnInterval", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACarSpawnerActor, SpawnInterval), METADATA_PARAMS(Z_Construct_UClass_ACarSpawnerActor_Statics::NewProp_SpawnInterval_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACarSpawnerActor_Statics::NewProp_SpawnInterval_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACarSpawnerActor_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACarSpawnerActor_Statics::NewProp_ActorToSpawn_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACarSpawnerActor_Statics::NewProp_ActorToSpawn,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACarSpawnerActor_Statics::NewProp_SpawnInterval,
 	};
@@ -100,7 +103,7 @@ void EmptyLinkFunctionForGeneratedCodeCarSpawnerActor() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACarSpawnerActor, 2429441572);
+	IMPLEMENT_CLASS(ACarSpawnerActor, 565891705);
 	template<> CROSSROAD_API UClass* StaticClass<ACarSpawnerActor>()
 	{
 		return ACarSpawnerActor::StaticClass();
