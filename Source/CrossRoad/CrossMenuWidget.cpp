@@ -7,6 +7,9 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "CrossGameInstance.h"
 
+
+/*Виджет главного меню, с обработкой нажатия на кнопки*/
+
 void UCrossMenuWidget::NativeOnInitialized()
 {
 	Super::NativeOnInitialized();

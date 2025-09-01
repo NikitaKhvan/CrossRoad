@@ -16,7 +16,7 @@ public:
 	ACarsActor();
 
 	UPROPERTY(EditAnywhere, Category="Speed")
-	float Speed = 100.0f;
+	float Speed = 200.0f;
 
 protected:
 	// Called when the game starts or when spawned

@@ -16,6 +16,7 @@ ACarsActor::ACarsActor()
 // Called when the game starts or when spawned
 void ACarsActor::BeginPlay()
 {
+    //уничтожение машинок по таймеру, сейчас стоит на 10 секунд
 	Super::BeginPlay();
     GetWorldTimerManager().SetTimer(
         DestroyTimerHandle,
@@ -30,9 +31,10 @@ void ACarsActor::BeginPlay()
 void ACarsActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-    Drive(Speed, DeltaTime);
+    Drive(Speed, DeltaTime);//вызывается в тике чтобы движение было непрерывным
 }
 
+//функция движения для машинок, просто сдвигает актера с заданной скоростью
 void ACarsActor::Drive(float Velocity, float DeltaTime)
 {   
     if (Velocity <= 0) {

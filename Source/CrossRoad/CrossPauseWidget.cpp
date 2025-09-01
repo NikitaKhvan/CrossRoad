@@ -1,6 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
+/*виджет меню паузы с обработкой нажания на кнопки и также дополнительной остановкой игры в момент паузы
+управление передается меню плеер контроллер, если не ошибаюсь*/
+
 #include "CrossPauseWidget.h"
 #include "GameFramework/GameModeBase.h"
 #include "Components/Button.h"

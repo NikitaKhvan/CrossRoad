@@ -1,6 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-
+/*базовый гейм мод, здесь происходит инициализация уровня, персонажа, худа, контроллера и всего прочего, в том числе смена
+стейтов: пауза, прогресс, гейм овер*/
 #include "CrossRoadGameModeBase.h"
 #include "FroggoCharacter.h"
 #include "MyPlayerController.h"
