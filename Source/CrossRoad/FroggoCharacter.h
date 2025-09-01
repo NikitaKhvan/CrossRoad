@@ -37,9 +37,16 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
 	bool bIsMoving;
 
-	//ионтаж движения
+	//монтаж движения
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Animation")
 	UAnimMontage* MoveAnim;
+
+	//монтаж смерти
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Animation")
+	UAnimMontage* DieAnim;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sound")
+	USoundBase* DeathSound;
 
 	//вызов анимации движения
 	void TryMove(const FVector& Direction);
@@ -60,4 +67,5 @@ private:
 	void MoveForward();
 	void MoveRight();
 	void MoveLeft();
+	bool bAlive = true;
 };

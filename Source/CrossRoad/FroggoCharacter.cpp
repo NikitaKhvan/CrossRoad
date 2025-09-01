@@ -33,45 +33,62 @@ void AFroggoCharacter::BeginPlay()
 //и конец игры при пересечении с коллизией транспорта
 void AFroggoCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (OtherActor && OtherActor != this)
-	{
-		if (OtherActor->IsA(ACarsActor::StaticClass()))
+	if (bAlive) {
+		if (OtherActor && OtherActor != this)
 		{
-			if (GetWorld()) {
-				const auto GameMode = Cast<ACrossRoadGameModeBase>(GetWorld()->GetAuthGameMode());
-				if (GameMode) {
-					GameMode->SetGameover();
-				}
-			}
-			return;
-		}
-		if (!ProcessedComponents.Contains(OtherComp))
-		{
-			ProcessedComponents.Add(OtherComp);
-			if (OtherComp->ComponentHasTag("Spawner")) {
-				AMapGenerator* Spawner = Cast<AMapGenerator>(UGameplayStatics::GetActorOfClass(GetWorld(), AMapGenerator::StaticClass()));
-				if (Spawner)
-				{
-					Spawner->GenChunkCollision();
-				}
-			}
-
-			if (OtherComp->ComponentHasTag("Road")) {
-				Counter++;
-			}
-
-			UE_LOG(LogTemp, Warning, TEXT("CONGRATS POINTS: %i"), Counter)
-				if (Counter > 9 && Counter % 5 == 0)
-				{
-					if (AMapGenerator* Spawner = Cast<AMapGenerator>(
-						UGameplayStatics::GetActorOfClass(GetWorld(), AMapGenerator::StaticClass())))
+			if (OtherActor->IsA(ACarsActor::StaticClass()))
+			{
+				if (GetWorld()) {
+					bAlive = false;
+					if (!DieAnim) return;
+					UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+					if (AnimInstance)
 					{
-						Spawner->RemoveOldRoads(5);
+						AnimInstance->Montage_Play(DieAnim);
+						if (DeathSound)
+						{
+							UGameplayStatics::PlaySoundAtLocation(
+								this,
+								DeathSound,
+								GetActorLocation()
+							);
+						}
+					}
+					const auto GameMode = Cast<ACrossRoadGameModeBase>(GetWorld()->GetAuthGameMode());
+					if (GameMode) {
+						GameMode->SetGameover();
+					}
+				}
+				return;
+			}
+			if (!ProcessedComponents.Contains(OtherComp))
+			{
+				ProcessedComponents.Add(OtherComp);
+				if (OtherComp->ComponentHasTag("Spawner")) {
+					AMapGenerator* Spawner = Cast<AMapGenerator>(UGameplayStatics::GetActorOfClass(GetWorld(), AMapGenerator::StaticClass()));
+					if (Spawner)
+					{
+						Spawner->GenChunkCollision();
 					}
 				}
 
-		}
+				if (OtherComp->ComponentHasTag("Road")) {
+					Counter++;
+				}
 
+				UE_LOG(LogTemp, Warning, TEXT("CONGRATS POINTS: %i"), Counter)
+					if (Counter > 9 && Counter % 5 == 0)
+					{
+						if (AMapGenerator* Spawner = Cast<AMapGenerator>(
+							UGameplayStatics::GetActorOfClass(GetWorld(), AMapGenerator::StaticClass())))
+						{
+							Spawner->RemoveOldRoads(5);
+						}
+					}
+
+			}
+
+		}
 	}
 }
 

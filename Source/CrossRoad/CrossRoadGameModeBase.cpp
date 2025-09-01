@@ -57,7 +57,6 @@ void ACrossRoadGameModeBase::SetGameState(ECrossTheRoad State)
 void ACrossRoadGameModeBase::GameOver()
 {
 	SetGameState(ECrossTheRoad::GameOver);
-
 	for (auto Pawn : TActorRange<APawn>(GetWorld())) {
 		if (Pawn) {
 			Pawn->TurnOff();
