@@ -17,11 +17,10 @@ ACarSpawnerActor::ACarSpawnerActor()
 void ACarSpawnerActor::BeginPlay()
 {
 	Super::BeginPlay();
-
+    //спаун машин происходит по таймеру
     if (ActorToSpawn.Num()>0)
     {
         SpawnActor();
-        UE_LOG(LogTemp, Warning, TEXT("TRYING TO SPAWN"));
         GetWorldTimerManager().SetTimer(
             SpawnTimerHandle,
             this,
@@ -29,6 +28,10 @@ void ACarSpawnerActor::BeginPlay()
             FMath::FRandRange(2.5f, SpawnInterval),
             true
         );
+        //возможно неправильно расположил данный элемент, по задумке наращивание сложности происходит по достижению четного кол-ва
+        //очков, расчет на то что бегин плей вызывается при создании нового спаунера потому происходит проверка четности очков
+        //и если количество очков четное то спаун интервал сокращается на пол секунды, до тех пор пока не достигнет 2.5 секунд
+        //меньший интервал приводил к непроходимым дорогам.
         AFroggoCharacter* Frog = Cast<AFroggoCharacter>(UGameplayStatics::GetActorOfClass(GetWorld(), AFroggoCharacter::StaticClass()));
         if (Frog && Frog->Counter > 0 && Frog->Counter % 2) {
             SpawnInterval = FMath::Clamp(SpawnInterval - 0.5f, 0.0f, 2.5f);
@@ -36,7 +39,8 @@ void ACarSpawnerActor::BeginPlay()
     }
 	
 }
-
+//функция для спауна актеров класса ACarsActor
+//рандомно из массива берет одно из значений и пробует спаунить его в мире
 void ACarSpawnerActor::SpawnActor()
 {
     if (ActorToSpawn.Num()>0)
@@ -56,7 +60,6 @@ void ACarSpawnerActor::SpawnActor()
                 FRotator Rotation = GetActorRotation();
 
                 GetWorld()->SpawnActor<AActor>(SelectedClass, Location, Rotation, SpawnParams);
-                //UE_LOG(LogTemp, Warning, TEXT("SPAWN at: %f"), Location);
             }
         }
     }

@@ -21,7 +21,6 @@ public:
 	void RemoveOldRoads(int32 NumToRemove);
 
 protected:
-	//Задается зона спауна дорог
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawn")
 	TSubclassOf<AMapChunk> SafeZoneSpawner;
 

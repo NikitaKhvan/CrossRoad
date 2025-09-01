@@ -21,8 +21,7 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	int32 Counter;
 
-	UPROPERTY(EditDefaultsOnly, Category ="Animation")
-	UAnimMontage* MoveAnim;
+	FVector MoveDirection;
 
 protected:
 	// Called when the game starts or when spawned
@@ -31,10 +30,24 @@ protected:
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
+	//переменная в которой хранятся уже затронутые колижен боксы 
 	UPROPERTY()
 	TSet<UPrimitiveComponent*> ProcessedComponents;
-
 	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
+	bool bIsMoving;
+
+	//ионтаж движения
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Animation")
+	UAnimMontage* MoveAnim;
+
+	//вызов анимации движения
+	void TryMove(const FVector& Direction);
+
+	//callback для конца анимации
+	UFUNCTION()
+	void OnMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+
 
 public:	
 	// Called every frame
@@ -44,41 +57,7 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 private:
-	//bool bCanMove = true;
 	void MoveForward();
 	void MoveRight();
 	void MoveLeft();
-	void PauseMovement();
-	FTimerHandle TimerHandle;
-
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement", meta = (AllowPrivateAccess = "true"))
-	UTimelineComponent* MovementTimeline;
-
-	// Кривая для управления интерполяцией
-	UPROPERTY(EditAnywhere, Category = "Movement", meta = (AllowPrivateAccess = "true"))
-	UCurveFloat* MovementCurve;
-
-	// Начальная и конечная позиции движения
-	FVector MovementStartLocation;
-	FVector MovementTargetLocation;
-
-	// Флаги состояния
-	bool bCanMove;
-	bool bIsMoving;
-
-	// Таймер хендл
-	FTimerHandle MovementTimerHandle;
-
-	// Делегаты для таймлайна
-	FOnTimelineFloat TimelineProgressDelegate;
-	FOnTimelineEvent TimelineFinishedDelegate;
-
-	// Функции обратного вызова для таймлайна
-	UFUNCTION()
-	void HandleTimelineProgress(float Value);
-
-	UFUNCTION()
-	void HandleTimelineFinished();
-
 };

@@ -14,19 +14,9 @@
 // Sets default values
 AFroggoCharacter::AFroggoCharacter()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	Counter = 0;
-	MovementTimeline = CreateDefaultSubobject<UTimelineComponent>(TEXT("MovementTimeline"));
-
-	// Настройка параметров Timeline
-	MovementTimeline->SetLooping(false);
-	MovementTimeline->SetIgnoreTimeDilation(false);
-	MovementTimeline->SetTimelineLength(0.2f); // Длительность движения в секундах
-	MovementTimeline->SetTimelineLengthMode(ETimelineLengthMode::TL_LastKeyFrame);
-
-	// Инициализация переменных
-	bCanMove = true;
 	bIsMoving = false;
 }
 
@@ -36,27 +26,13 @@ void AFroggoCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	GetCapsuleComponent()->OnComponentBeginOverlap.AddDynamic(this, &AFroggoCharacter::OnOverlapBegin);
-
-	if (!MovementCurve)
-	{
-		UE_LOG(LogTemp, Error, TEXT("MovementCurve is not set for %s! Please assign a curve in the blueprint."), *GetName());
-		return;
-	}
-
-	// Настройка делегатов
-	TimelineProgressDelegate.BindUFunction(this, FName("HandleTimelineProgress"));
-	TimelineFinishedDelegate.BindUFunction(this, FName("HandleTimelineFinished"));
-
-	// Добавление интерполяции к таймлайну
-	MovementTimeline->AddInterpFloat(MovementCurve, TimelineProgressDelegate);
-	MovementTimeline->SetTimelineFinishedFunc(TimelineFinishedDelegate);
-
 }
 
+//очень перегруженная функция которую неплохо было бы разделить, но пока не представляю как
+//здесь происходит отслеженивание всех пересечений капсулы персонажа, что влияет на подсчет очков, вызов спауна дорог
+//и конец игры при пересечении с коллизией транспорта
 void AFroggoCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-
-
 	if (OtherActor && OtherActor != this)
 	{
 		if (OtherActor->IsA(ACarsActor::StaticClass()))
@@ -83,16 +59,16 @@ void AFroggoCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActo
 			if (OtherComp->ComponentHasTag("Road")) {
 				Counter++;
 			}
-			
+
 			UE_LOG(LogTemp, Warning, TEXT("CONGRATS POINTS: %i"), Counter)
-			if (Counter>9 && Counter % 5 == 0)
-			{
-				if (AMapGenerator* Spawner = Cast<AMapGenerator>(
-					UGameplayStatics::GetActorOfClass(GetWorld(), AMapGenerator::StaticClass())))
+				if (Counter > 9 && Counter % 5 == 0)
 				{
-					Spawner->RemoveOldRoads(5);
+					if (AMapGenerator* Spawner = Cast<AMapGenerator>(
+						UGameplayStatics::GetActorOfClass(GetWorld(), AMapGenerator::StaticClass())))
+					{
+						Spawner->RemoveOldRoads(5);
+					}
 				}
-			}
 
 		}
 
@@ -107,21 +83,16 @@ void AFroggoCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	// Ограничение перемещения камеры по всем осям кроме оси X
+	//костыльное решение чтобы камера не могла двигаться влево вправо, но работает и выглядит неплохо
 	USpringArmComponent* SpringArm = FindComponentByClass<USpringArmComponent>();
 	if (SpringArm)
 	{
 		FVector NewLocation = SpringArm->GetRelativeLocation();
-
-		// Получаем позицию персонажа в локальных координатах
 		FVector CharLoc = GetActorLocation();
-
-		// Следим только по X
+		//следим только по X
 		NewLocation.X = CharLoc.X;
-
-		// Блокируем смещение по Y
+		//блокируем смещение по Y
 		NewLocation.Z = 0.0f;
-
 		SpringArm->SetRelativeLocation(NewLocation);
 	}
 }
@@ -135,90 +106,41 @@ void AFroggoCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction("M_Right", EInputEvent::IE_Pressed, this, &AFroggoCharacter::MoveRight);
 }
 
+//так как все движение проихсодит в аним нотифай стейте здесь мы просто вызываем проигрывание аним монтажа и передаем вектор
+//направления движения в зависимости от нажатой клавиши
 void AFroggoCharacter::MoveForward()
 {
-	if (bCanMove && !bIsMoving)
-	{
-		// Сохраняем начальную позицию
-		MovementStartLocation = GetActorLocation();
-
-		// Рассчитываем целевую позицию
-		MovementTargetLocation = MovementStartLocation + GetActorForwardVector() * 100.0f;
-
-		// Устанавливаем флаг движения
-		bIsMoving = true;
-
-		// Вызываем вашу функцию паузы
-		PauseMovement();
-
-		// Запускаем таймлайн с начала
-		MovementTimeline->PlayFromStart();
-
-		// Устанавливаем таймер (если он все еще нужен)
-		GetWorldTimerManager().SetTimer(MovementTimerHandle, this, &AFroggoCharacter::PauseMovement, 0.2f, false);
-
-		UE_LOG(LogTemp, Log, TEXT("Starting movement from %s to %s"),
-			*MovementStartLocation.ToString(),
-			*MovementTargetLocation.ToString());
-	}
-	else if (!bCanMove)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Cannot move - bCanMove is false"));
-	}
-	else if (bIsMoving)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Already moving - wait for current movement to finish"));
-	}
+	TryMove(GetActorForwardVector());
 }
 
 void AFroggoCharacter::MoveRight()
 {
-	if (bCanMove) {
-		
-		FVector Right = GetActorRightVector();
-		FVector NewLocation = GetActorLocation() + Right * 100.0f;
-		bIsMoving = true;
-		PauseMovement();
-		SetActorLocation(NewLocation, true);
-		GetWorldTimerManager().SetTimer(TimerHandle, this, &AFroggoCharacter::PauseMovement, 0.1f, false);
-	}
+	TryMove(GetActorRightVector());
 }
 
 void AFroggoCharacter::MoveLeft()
 {
-	if (bCanMove) {
-		
-		FVector Right = GetActorRightVector();
-		FVector NewLocation = GetActorLocation() + Right * -100.0f;
-		bIsMoving = true;
-		PauseMovement();
-		SetActorLocation(NewLocation, true);
-		GetWorldTimerManager().SetTimer(TimerHandle, this, &AFroggoCharacter::PauseMovement, 0.1f, false);
+	TryMove(-GetActorRightVector());
+}
+
+void AFroggoCharacter::OnMontageEnded(UAnimMontage* Montage, bool bInterrupted)
+{
+	if (Montage == MoveAnim)
+	{
+		bIsMoving = false;
 	}
 }
 
-void AFroggoCharacter::PauseMovement()
+//непосредственно выполнение аним монтажа
+void AFroggoCharacter::TryMove(const FVector& Direction)
 {
-	bIsMoving = false;
-	bCanMove = !bCanMove;
-}
-
-void AFroggoCharacter::HandleTimelineProgress(float Value)
-{
-	// Плавная интерполяция позиции
-	FVector NewLocation = FMath::Lerp(MovementStartLocation, MovementTargetLocation, Value);
-
-	// Устанавливаем новую позицию без проверки коллизий (для плавности)
-	SetActorLocation(NewLocation, false);
-}
-
-void AFroggoCharacter::HandleTimelineFinished()
-{
-	SetActorLocation(MovementTargetLocation, true); // С проверкой коллизий
-
-	// Сбрасываем флаг движения
-	bIsMoving = false;
-
-	// Дополнительные действия после завершения движения
-	UE_LOG(LogTemp, Log, TEXT("Movement finished"));
+	if (bIsMoving || !MoveAnim) return;
+	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+	if (AnimInstance)
+	{
+		bIsMoving = true;
+		MoveDirection = Direction;
+		AnimInstance->Montage_Play(MoveAnim);
+		AnimInstance->OnMontageEnded.AddDynamic(this, &AFroggoCharacter::OnMontageEnded);
+	}
 }

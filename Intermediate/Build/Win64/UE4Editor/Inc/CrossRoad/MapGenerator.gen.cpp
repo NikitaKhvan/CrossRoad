@@ -68,7 +68,6 @@ void EmptyLinkFunctionForGeneratedCodeMapGenerator() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMapGenerator_Statics::NewProp_SafeZoneSpawner_MetaData[] = {
 		{ "Category", "Spawn" },
-		{ "Comment", "//???????? ???? ?????? ?????\n" },
 		{ "ModuleRelativePath", "MapGenerator.h" },
 	};
 #endif
@@ -128,7 +127,7 @@ void EmptyLinkFunctionForGeneratedCodeMapGenerator() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMapGenerator, 859378546);
+	IMPLEMENT_CLASS(AMapGenerator, 3263627283);
 	template<> CROSSROAD_API UClass* StaticClass<AMapGenerator>()
 	{
 		return AMapGenerator::StaticClass();

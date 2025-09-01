@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UAnimMontage;
 class UPrimitiveComponent;
 class AActor;
 struct FHitResult;
@@ -19,15 +20,13 @@ struct FHitResult;
 #define CrossRoad_Source_CrossRoad_FroggoCharacter_h_15_SPARSE_DATA
 #define CrossRoad_Source_CrossRoad_FroggoCharacter_h_15_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execHandleTimelineFinished); \
-	DECLARE_FUNCTION(execHandleTimelineProgress); \
+	DECLARE_FUNCTION(execOnMontageEnded); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
 #define CrossRoad_Source_CrossRoad_FroggoCharacter_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execHandleTimelineFinished); \
-	DECLARE_FUNCTION(execHandleTimelineProgress); \
+	DECLARE_FUNCTION(execOnMontageEnded); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
@@ -75,8 +74,8 @@ public: \
 
 #define CrossRoad_Source_CrossRoad_FroggoCharacter_h_15_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__ProcessedComponents() { return STRUCT_OFFSET(AFroggoCharacter, ProcessedComponents); } \
-	FORCEINLINE static uint32 __PPO__MovementTimeline() { return STRUCT_OFFSET(AFroggoCharacter, MovementTimeline); } \
-	FORCEINLINE static uint32 __PPO__MovementCurve() { return STRUCT_OFFSET(AFroggoCharacter, MovementCurve); }
+	FORCEINLINE static uint32 __PPO__bIsMoving() { return STRUCT_OFFSET(AFroggoCharacter, bIsMoving); } \
+	FORCEINLINE static uint32 __PPO__MoveAnim() { return STRUCT_OFFSET(AFroggoCharacter, MoveAnim); }
 
 
 #define CrossRoad_Source_CrossRoad_FroggoCharacter_h_12_PROLOG
